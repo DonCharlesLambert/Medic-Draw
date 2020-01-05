@@ -1,5 +1,5 @@
 import React, {Component,} from 'react';
-import {StyleSheet, PixelRatio, Text, View, TouchableHighlight, Platform, } from 'react-native';
+import {StyleSheet, Text, View, TouchableHighlight, Platform, } from 'react-native';
 import PropTypes from 'prop-types';
 
 
@@ -16,7 +16,6 @@ static defaultProps = {
     btnName: 'Button',
     underlayColor: '#3a3b3a',
 };
-
 
 render() {
     return (
@@ -47,7 +46,6 @@ btnDefaultStyle: {
     backgroundColor: '#878787',
     borderColor: '#878787',
     borderRadius: 15,
-    // borderWidth: (Platform.OS==='ios' ? 1.0 : 1.5) / PixelRatio.get(),
 },
 textDefaultStyle: {
     fontSize: 16,
@@ -56,3 +54,5 @@ textDefaultStyle: {
 });
 
 module.exports = RadiusBtn;
+
+// https://blog.csdn.net/BingHongChaZuoAn/article/details/52809537
