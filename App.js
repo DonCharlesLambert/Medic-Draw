@@ -5,6 +5,8 @@ import WholeBodyScreen from './src/pages/WholeBodyScreen';
 import CreateAccountScreen from './src/pages/CreateAccountScreen';
 import HeadScreen from './src/pages/HeadScreen';
 import LarynxPicScreen from './src/pages/LarynxPicScreen';
+import DrawingScreen from './src/pages/DrawingScreen';
+import QuestionScreen from './src/pages/QuestionScreen';
 
 import * as React from 'react';
 import { createAppContainer } from 'react-navigation';
@@ -19,6 +21,8 @@ const RootStack = createStackNavigator(
     CreateAccount: CreateAccountScreen,
     Head: HeadScreen,
     LarynxPic: LarynxPicScreen,
+    Drawing: DrawingScreen,
+    Question: QuestionScreen,
   },
   {
     initialRouteName: 'Home',

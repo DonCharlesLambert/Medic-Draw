@@ -14,12 +14,12 @@ export default class LarynxPicScreen extends React.Component {
           <Image source={require('../../img/larynx.png')} style={styles.imgStyle}></Image>
           <Button
             title="Axial"
-            onPress={() => this.props.navigation.navigate('CreateNewPatient')}
+            onPress={() => this.props.navigation.navigate('Drawing')}
           />
           <Image source={require('../../img/larynx.png')} style={styles.imgStyle}></Image> 
           <Button
             title="Sagital"
-            onPress={() => this.props.navigation.navigate('CreateNewPatient')}
+            onPress={() => this.props.navigation.navigate('Drawing')}
           />
         </View>
 
@@ -35,11 +35,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
       },
       imgStyle: {
-        // 设置背景颜色
-        // backgroundColor:'green',
-        // 设置宽度
         width:Dimensions.get('window').width,
-        // 设置高度
         height:300
     }
 });
