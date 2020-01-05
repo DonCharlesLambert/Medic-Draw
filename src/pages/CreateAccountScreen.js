@@ -26,12 +26,10 @@ export default class CreateAccountScreen extends React.Component {
             <TextInput
                 style={styles.input}
                 placeholder= {this.state.password}
-                // onChangeText={(text) => this.setState({ password: text })}
             />
             <TextInput
                 style={styles.input}
                 placeholder= {'Confirm Password'}
-                // onChangeText={(text) => this.setState({ password: text })}
             />
             <Button
                 title="Submit"
