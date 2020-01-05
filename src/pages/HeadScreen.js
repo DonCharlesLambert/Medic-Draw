@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, Button, TextInput, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Button, TextInput, Alert, TouchableOpacity } from 'react-native';
 import RadiusBtn from '../CustomedComponent/RadiusBtn';
 
 export default class WholeBodyScreen extends React.Component {
@@ -9,10 +9,12 @@ export default class WholeBodyScreen extends React.Component {
         
     render() {
       return (
+        // <ScrollView style={{flex: 1}}>
+
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', height: 300 }}>
-          <ImageBackground style = {styles.background} source={require('../../img/body.png')}>
+          <ImageBackground style = {styles.background} source={require('../../img/head.png')}>
             <RadiusBtn
-                btnName='Head'
+                btnName='Larynx'
                 textStyle= {{
                             color: '#ffffff',
                           }}
@@ -23,10 +25,12 @@ export default class WholeBodyScreen extends React.Component {
                             height: 50,
                             borderRadius: 25,
                           }}
-                onPress={() => this.props.navigation.navigate('Head')}
+                onPress={() => this.props.navigation.navigate('LarynxPic')}
             />
           </ImageBackground>
         </View>
+        // </ScrollView>
+
       );
     }
   }
