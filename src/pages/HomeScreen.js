@@ -34,7 +34,7 @@ export default class HomeScreen extends React.Component {
           />
           <Button
               title="Login"
-              onPress={() => this.props.navigation.navigate('Question')}
+              onPress={() => this.props.navigation.navigate('Menu')}
             />
           <Button
               title="Sign Up"
