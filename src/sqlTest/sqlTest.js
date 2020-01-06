@@ -32,12 +32,12 @@ function queryDatabase() {
 
   // Read all rows from table
   const request = new Request(
-    `CREATE TABLE IF NOT EXISTS test (name char(255))`
+    // `CREATE TABLE IF NOT EXISTS test (name char(255))`
     
     //  `INSERT INTO test VALUES ('n');`,
     // VALUES (name);`
     
-//    ` SELECT * FROM test;`
+   ` SELECT * FROM test;`
     ,(err, rowCount) => {
       if (err) {
         console.error(err.message);
