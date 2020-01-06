@@ -1,12 +1,20 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, Button, TextInput, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ToastAndroid, Button, TextInput, Alert, TouchableOpacity, ActionSheetIOS } from 'react-native';
 
 export default class AnotherScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Create New Patient',
     };
-    
+
+  constructor(props){
+    super(props);
+    this.state= {
+        name:'',
+        DOB:''
+    }
+  }
+
     render() {
       return (
         <ScrollView style={{flex: 1}}>
@@ -16,12 +24,18 @@ export default class AnotherScreen extends React.Component {
               <TextInput
               style={styles.input}
               placeholder="Name"
+              autoCorrect={false}
+              clearButtonMode="always"
+              onChangeText={(name)=>this.setState({name})}
               ></TextInput>
 
             <Text>DOB</Text>
             <TextInput
               style={styles.input}
               placeholder="DOB"
+              autoCorrect={false}
+              clearButtonMode="always"
+              onChangeText={(DOB)=>this.setState({DOB})}
             ></TextInput>
 
               <Text>Hosptical Number</Text>
@@ -29,6 +43,8 @@ export default class AnotherScreen extends React.Component {
               style={styles.input}
               // keyboardType="numeric"
               placeholder="Hosptical Number"
+              autoCorrect={false}
+              clearButtonMode="always"
               ></TextInput>
 
               <Text>Symptom</Text>
@@ -41,10 +57,13 @@ export default class AnotherScreen extends React.Component {
               borderWidth: 1}}
               multiline={true}
               placeholder="Symptom"
+              autoCorrect={false}
+              clearButtonMode="always"
               ></TextInput>
 
               <Button
                 title="Submit"
+                // onPress={()=>{this.NewPatientMethod(this.state)}}>
                 onPress={() => this.props.navigation.navigate('WholeBody')}
               ></Button>
           </View>
