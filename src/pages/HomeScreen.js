@@ -24,12 +24,17 @@ export default class HomeScreen extends React.Component {
           <TextInput
             style={styles.input}
             placeholder= {this.state.username}
+            autoCorrect={false}
+            clearButtonMode="always"
             onChangeText={(text) => this.setState({ username: text })}
             password={true}
+            // secureTextEntry={true}
           />
           <TextInput
             style={styles.input}
             placeholder= {this.state.password}
+            autoCorrect={false}
+            clearButtonMode="always"
             onChangeText={(text) => this.setState({ password: text })}
           />
           <Button
