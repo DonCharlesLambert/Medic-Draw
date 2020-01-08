@@ -7,7 +7,7 @@ export default class drawingScreen extends React.Component {
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around', height: 300}}>
               {/* don please continue working on this page */}
               <Button
-                title="Next Page"
+                title="Don is here!"
                 onPress={() => this.props.navigation.navigate('Question')}
               />
             </View>
