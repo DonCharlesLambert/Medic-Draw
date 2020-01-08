@@ -63,9 +63,8 @@ export default class HomeScreen extends React.Component {
     return (
       <ScrollView style={{flex: 1}}>
         <View style={styles.container}>
-          {/* <ImageBackground style = {styles.background} source={require('./img/bg.gif')}> */}
           <Text style={{ color: "black", fontSize: 30 }}>MEDIC DRAW</Text>
-  
+
           <Image style = {styles.login_image} source={require('../../img/blankprofile.jpg')} resizeMode="contain"></Image>
   
           <TextInput
@@ -94,14 +93,40 @@ export default class HomeScreen extends React.Component {
             />
           <Button
               title="Sign Up"
-              onPress={() =>this.props.navigation.navigate('CreateAccount')}
+              onPress= {() =>this.props.navigation.navigate('CreateAccount')}// {this.login} // {() =>this.props.navigation.navigate('CreateAccount')}
           />
            
-          {/* </ImageBackground> */}
         </View>
       </ScrollView>
       );
     }
+
+  //   login = () => {
+  //     alert(this.state.username);
+  //     fetch("https://89.36.71.180: 3000/users", {
+  //       method: "POST",
+  //       headers: {
+  //         'Accept': 'application/json',
+  //         'Content-type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         username: this.state.username,
+  //         password: this.state.password,
+  //       })
+  //     })
+  //     .then((response) => response.json())
+  //     .then((res) => {
+  //       if (res.success === true) {
+  //         AsyncStorage.setItem('user', res.user);
+  //         this.props.navigation.navigate('Menu');
+  //       }
+  //       else {
+  //         alert(res.message);
+  //       }
+
+  //     })
+  //     .done();
+  //   }
   }
 
 const styles = StyleSheet.create({
