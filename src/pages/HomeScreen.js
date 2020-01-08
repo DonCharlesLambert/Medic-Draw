@@ -1,16 +1,63 @@
 
 import * as React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, Button, TextInput, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Button, TextInput, Alert, AsyncStorage } from 'react-native';
 
 export default class HomeScreen extends React.Component {
-    state = {
-            username: 'Username',
-            password: 'Password'
-          }
+
+  constructor(props) {
+    super(props);
+    // this.login = this.login.bind(this);
+    this.state = {
+      username: '',
+      password: '',
+    }
+  }
+    // state = {
+    //         username: 'Username',
+    //         password: 'Password'
+    //       }
+
+    componentDidMount() {
+      this._loadInitialState().done();
+    }
+
+    _loadInitialState = async () => {
+      var value = await AsyncStorage.getItem('user');
+      if (value !== null) {
+        this.props.navigate('Menu');
+      }
+    }
 
     static navigationOptions = {
     title: 'Home',
     };
+
+    login = () => {
+      alert(this.state.username);
+      fetch("https://89.36.71.180: 3000/users", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password,
+        })
+      })
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.success === true) {
+          AsyncStorage.setItem('user', res.user);
+          this.props.navigation.navigate('Menu');
+        }
+        else {
+          alert(res.message);
+        }
+
+      })
+      .done();
+    }
 
     render() {
     return (
@@ -23,23 +70,27 @@ export default class HomeScreen extends React.Component {
   
           <TextInput
             style={styles.input}
-            placeholder= {this.state.username}
+            placeholder= {"username"}
             autoCorrect={false}
             clearButtonMode="always"
-            onChangeText={(text) => this.setState({ username: text })}
-            password={true}
+            ref= "username"
+            onChangeText={(username) => this.setState({username})}
+            value={this.state.username}
             // secureTextEntry={true}
           />
           <TextInput
             style={styles.input}
-            placeholder= {this.state.password}
+            placeholder= {"password"}
             autoCorrect={false}
             clearButtonMode="always"
-            onChangeText={(text) => this.setState({ password: text })}
+            ref= "password"
+            onChangeText={(password) => this.setState({password})}
+            value={this.state.password}
+            password={true}
           />
           <Button
               title="Login"
-              onPress={() => this.props.navigation.navigate('Menu')}
+              onPress= {this.login.bind(this)} // {() =>this.props.navigation.navigate('CreateAccount')}
             />
           <Button
               title="Sign Up"
@@ -52,7 +103,6 @@ export default class HomeScreen extends React.Component {
       );
     }
   }
-
 
 const styles = StyleSheet.create({
   container: {
