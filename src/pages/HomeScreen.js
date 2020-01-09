@@ -33,9 +33,11 @@ export default class HomeScreen extends React.Component {
     };
 
     login = () => {
-      alert(this.state.username);
-      fetch("https://89.36.71.180: 3000/users", {
-        method: "POST",
+      // alert(this.state.username);
+      console.log("here");
+
+      fetch('https://89.36.71.180: 3000/users', {
+        method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-type': 'application/json',
@@ -44,9 +46,12 @@ export default class HomeScreen extends React.Component {
           username: this.state.username,
           password: this.state.password,
         })
-      })
-      .then((response) => response.json())
+      }, console.log('hi'))   
+      .then((response) => response.json()) 
       .then((res) => {
+
+        alert(res.message);
+
         if (res.success === true) {
           AsyncStorage.setItem('user', res.user);
           this.props.navigation.navigate('Menu');
@@ -54,7 +59,9 @@ export default class HomeScreen extends React.Component {
         else {
           alert(res.message);
         }
-
+      })
+      .catch((err) => {
+        console.error(err);
       })
       .done();
     }
@@ -76,7 +83,6 @@ export default class HomeScreen extends React.Component {
             ref= "username"
             onChangeText={(username) => this.setState({username})}
             value={this.state.username}
-            // secureTextEntry={true}
           />
           <TextInput
             style={styles.input}
@@ -86,11 +92,11 @@ export default class HomeScreen extends React.Component {
             ref= "password"
             onChangeText={(password) => this.setState({password})}
             value={this.state.password}
-            password={true}
+            secureTextEntry = {true}
           />
           <Button
               title="Login"
-              onPress= {this.login.bind(this)} // {() =>this.props.navigation.navigate('CreateAccount')}
+              onPress= {this.login} // {() =>this.props.navigation.navigate('CreateAccount')}
             />
           <Button
               title="Sign Up"

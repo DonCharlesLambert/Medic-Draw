@@ -3,12 +3,26 @@ var router = express.Router();
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host
+  // host:'localhost',
+  // user: 'root',
+  // password: 'root',
+  // database: 'users'
+  authentication: {
+    options: {
+      userName: "sylvia", // update me
+      password: "Team30medicaldrawing" // update me
+    },
+    type: "default"
+  },
+  server: "team-30-medical-drawings.database.windows.net", // update me
+  options: {
+    database: "medical-drawings", //update me
+    encrypt: true 
+  }
 });
 
-/* Post users listing. */
 router.post('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send({message: 'Testing to get data from backend'});
 });
 
 module.exports = router;
