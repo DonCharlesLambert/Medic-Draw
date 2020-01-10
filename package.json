@@ -8,26 +8,13 @@
     "eject": "expo eject"
   },
   "dependencies": {
-<<<<<<< HEAD
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
     "expo": "~36.0.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.2",
-=======
     "events": "^3.0.0",
-    "expo": "~36.0.0",
-    "express": "^4.17.1",
-<<<<<<< HEAD
-=======
-    "express-generator": "^4.16.1",
-    "http": "0.0.0",
-    "mssql": "^6.0.1",
-    "mysqli": "^3.0.11",
-    "net": "^1.0.2",
->>>>>>> 9381cca16a58dd7a70194de9e3e67c6892904d1e
->>>>>>> 7e43657896adbf25296e73930f759eac63b64ad0
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",

@@ -22,7 +22,7 @@ export default class HomeScreen extends React.Component {
     }
 
     _loadInitialState = async () => {
-      var value = await AsyncStorage.getItem('user');
+      var value = await AsyncStorage.getItem('users');
       if (value !== null) {
         this.props.navigate('Menu');
       }
@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component {
       // alert(this.state.username);
       console.log("here");
 
-      fetch('https://89.36.71.180: 3000/users', {
+      fetch('https://31.205.207.19: 3000/users', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -46,7 +46,7 @@ export default class HomeScreen extends React.Component {
           username: this.state.username,
           password: this.state.password,
         })
-      }, console.log('hi'))   
+      })   
       .then((response) => response.json()) 
       .then((res) => {
 
@@ -95,7 +95,8 @@ export default class HomeScreen extends React.Component {
           />
           <Button
               title="Login"
-              onPress= {this.login} // {() =>this.props.navigation.navigate('CreateAccount')}
+              // onPress= {this.login} 
+              onPress={() =>this.props.navigation.navigate('Menu')}
             />
           <Button
               title="Sign Up"
