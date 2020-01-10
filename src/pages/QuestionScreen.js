@@ -4,6 +4,11 @@ import CheckBtn from '../CustomedComponent/CheckBtn';
 
 
 export default class drawingScreen extends React.Component {
+
+  static navigationOptions = {
+    title: 'Questions',
+    };
+
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around', height: 300}}>
@@ -21,7 +26,7 @@ export default class drawingScreen extends React.Component {
             />
               <Button
                 title="Submit"
-                onPress={() => this.props.navigation.navigate('CreateNewPatient')}
+                onPress={() => this.props.navigation.navigate('SelectVersion')}
               />
             </View>
           );
