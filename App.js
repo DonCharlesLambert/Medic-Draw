@@ -8,6 +8,8 @@ import LarynxPicScreen from './src/pages/LarynxPicScreen';
 import DrawingScreen from './src/pages/DrawingScreen';
 import QuestionScreen from './src/pages/QuestionScreen';
 import SelectVersionScreen from './src/pages/SelectVersionScreen';
+import ResultScreen from './src/pages/ResultScreen';
+
 
 import * as React from 'react';
 import { createAppContainer } from 'react-navigation';
@@ -25,6 +27,7 @@ const RootStack = createStackNavigator(
     Drawing: DrawingScreen,
     Question: QuestionScreen,
     SelectVersion: SelectVersionScreen,
+    Result: ResultScreen,
   },
   {
     initialRouteName: 'Home',

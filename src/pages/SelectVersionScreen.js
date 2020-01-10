@@ -15,19 +15,9 @@ export default class SelectVersionScreen extends React.Component {
               <Text>Slect UICC version</Text>
               <Button
                 title="OK"
-                onPress={() => this.props.navigation.navigate('CreateNewPatient')}
+                onPress={() => this.props.navigation.navigate('Result')}
               />
             </View>
           );
     }
 }
-
-const styles = StyleSheet.create({
-    input: {
-      height: 80,
-      width: '60%',
-      borderColor: 'gray',
-      marginBottom: '2.5%',
-      borderWidth: 1
-    },
-  });
