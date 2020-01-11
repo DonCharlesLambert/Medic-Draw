@@ -62,6 +62,7 @@ export default class HomeScreen extends React.Component {
       })
       .catch((err) => {
         console.error(err);
+        console.log('sad error appear');
       })
       .done();
     }

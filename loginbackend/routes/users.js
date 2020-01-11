@@ -27,4 +27,9 @@ router.post('/', function(req, res, next) {
   res.send({message: 'Testing to get data from backend'});
 });
 
+router.post('/users', function(req, res, next) {
+  console.log('backend');
+  res.send({message: 'Testing to get data from backend'});
+});
+
 module.exports = router;
