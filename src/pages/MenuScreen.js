@@ -20,6 +20,11 @@ export default class DetailsScreen extends React.Component {
             title="Edit Existing Patient"
             onPress={() => this.props.navigation.navigate('CreateNewPatient')}
           />
+
+          <Button
+            title="View UICC Version"
+            // bainuo please work on the page 
+          />
         </View>
       );
     }
