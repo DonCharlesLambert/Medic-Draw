@@ -1,6 +1,7 @@
 
 import * as React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, Button, TextInput, Alert, AsyncStorage } from 'react-native';
+import { Header } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component {
 
@@ -12,10 +13,6 @@ export default class HomeScreen extends React.Component {
       password: '',
     }
   }
-    // state = {
-    //         username: 'Username',
-    //         password: 'Password'
-    //       }
 
     componentDidMount() {
       this._loadInitialState().done();
@@ -29,8 +26,8 @@ export default class HomeScreen extends React.Component {
     }
 
     static navigationOptions = {
-    title: 'Home',
-    };
+      headerShown: false
+      };
 
     login = () => {
       if (this.state.username === '') {
@@ -42,6 +39,8 @@ export default class HomeScreen extends React.Component {
         Alert.alert('Password cannot be empty!');
         return;
       }
+
+      this.props.navigation.navigate('Profile');
 
       // fetch('http://facebook.github.io/react-native/movies.json')
       // .then((response) => response.json())
@@ -55,42 +54,40 @@ export default class HomeScreen extends React.Component {
 
       // alert(this.state.username);
 
-      fetch('http://127.0.0.1:3000/users', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: this.state.username,
-          password: this.state.password,
-        })
-      })   
-      .then((response) => response.json()) 
-      .then((res) => {   
-        alert(res.message)     
-        if (res.success === true) {
-          AsyncStorage.setItem('user', res.user);
-          this.props.navigation.navigate('Menu');
-        }
-        else {
-          alert(res.message);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .done();
+      // fetch('http://127.0.0.1:3000/users', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Accept': 'application/json',
+      //     'Content-type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     username: this.state.username,
+      //     password: this.state.password,
+      //   })
+      // })   
+      // .then((response) => response.json()) 
+      // .then((res) => {   
+      //   alert(res.message)     
+      //   if (res.success === true) {
+      //     AsyncStorage.setItem('user', res.user);
+      //     this.props.navigation.navigate('Menu');
+      //   }
+      //   else {
+      //     alert(res.message);
+      //   }
+      // })
+      // .catch((err) => {
+      //   console.error(err);
+      // })
+      // .done();
     }
 
     render() {
     return (
       <ScrollView style={{flex: 1}}>
+        <Header centerComponent={{ text: 'MEDICAL DRAW', style: { fontSize: 20, color: '#fff' } }} />
         <View style={styles.container}>
-          <Text style={{ color: "black", fontSize: 30 }}>MEDIC DRAW</Text>
-
-          <Image style = {styles.login_image} source={require('../../img/blankprofile.jpg')} resizeMode="contain"></Image>
-  
+          <Text style={{ color: "black", fontSize: 20 }}>WELCOME!</Text>  
           <TextInput
             style={styles.input}
             placeholder= {"username"}
@@ -112,13 +109,14 @@ export default class HomeScreen extends React.Component {
           />
           <Button
               title="Login"
-              // onPress= {this.login.bind(this)} 
-              onPress={() =>this.props.navigation.navigate('Menu')}
+              onPress= {this.login.bind(this)} 
+              // onPress={() =>this.props.navigation.navigate('Profile')}
             />
           <Button
-              title="Sign Up"
+              title="Do not have an account? Sign Up!"
               onPress= {() =>this.props.navigation.navigate('CreateAccount')}// {this.login} // {() =>this.props.navigation.navigate('CreateAccount')}
           />
+
            
         </View>
       </ScrollView>
@@ -169,12 +167,6 @@ const styles = StyleSheet.create({
     marginBottom: '2.5%',
     borderWidth: 1
   },
-
-  login_image: {
-    height: '20%',
-    marginBottom: '2.5%',
-  },
-
   // background: {
   //   width: '100%',
   //   height: '100%',

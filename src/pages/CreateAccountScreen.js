@@ -1,39 +1,84 @@
 import * as React from 'react';
-import { StyleSheet, View, TextInput, Button, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, TextInput, Button, Alert, Text, ScrollView } from 'react-native';
+import { Header } from 'react-native-elements';
 
 export default class CreateAccountScreen extends React.Component {
     state = {
-        username: 'Username',
-        password: 'Password'
+        username: '',
+        password: '',
+        confirmPassword: ''
       }
 
     static navigationOptions = {
-        title: 'Create Account',
+        headerShown: false,
         };
+
+    CreateAccount = () => {
+      if (this.state.username === '') {
+        Alert.alert('Username cannot be empty!');
+        return;
+      }
+  
+      if (this.state.password === '') {
+        Alert.alert('Password cannot be empty!');
+        return;
+      }
+
+      if (this.state.comfirmPassword === '') {
+        Alert.alert('Password cannot be empty!');
+        return;
+      }
+
+      if (this.state.password !== this.state.confirmPassword) {
+        Alert.alert('Password does not match!');
+        return;
+      }
+      
+      Alert.alert('Account has created successfully!');
+      this.props.navigation.navigate('Home');
+    }
+      
         
     render() {
       return (
         <ScrollView style={{flex: 1}}>
+            <Header centerComponent={{ text: 'MEDICAL DRAW', style: { fontSize: 30, color: '#fff' } }} />
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', height: 300 }}>
-            <Text style={{ color: "black", fontSize: 30 }}>Create Account</Text>
+            <Text style={{ color: "black", fontSize: 20 }}>Create Account</Text>
 
             <TextInput
                 style={styles.input}
-                placeholder= {this.state.username}
-                onChangeText={(text) => this.setState({ username: text })}
-                password={true}
+                placeholder= {'Username'}
+                autoCorrect={false}
+                clearButtonMode="always"
+                onChangeText={(username) => this.setState({username})}
             />
             <TextInput
                 style={styles.input}
-                placeholder= {this.state.password}
+                placeholder= {'Password'}
+                secureTextEntry = {true}
+                autoCorrect={false}
+              clearButtonMode="always"
+                onChangeText={(password) => this.setState({password})}
+                
             />
             <TextInput
                 style={styles.input}
                 placeholder= {'Confirm Password'}
+                secureTextEntry = {true}
+                autoCorrect={false}
+                clearButtonMode="always"
+                onChangeText={(confirmPassword) => this.setState({confirmPassword})}
+                
+
             />
             <Button
                 title="Submit"
-                onPress={() => this.props.navigation.navigate('Home')}
+                onPress= {this.CreateAccount.bind(this)} 
+                />
+            <Button
+                title="Already have an account? Log in!"
+                onPress= {() =>this.props.navigation.navigate('Home')} 
                 />
             </View>
         </ScrollView>
