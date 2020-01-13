@@ -9,7 +9,7 @@ export default class ResultScreen extends React.Component {
     };
 
     Exported = () => {
-        alert('Data has imported to your album!');
+        alert('Data has imported to your album! Thank You!');
         this.props.navigation.navigate('Menu');
     }
 

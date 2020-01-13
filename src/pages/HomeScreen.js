@@ -33,10 +33,29 @@ export default class HomeScreen extends React.Component {
     };
 
     login = () => {
-      // alert(this.state.username);
-      console.log("here");
+      if (this.state.username === '') {
+        Alert.alert('Username cannot be empty!');
+        return;
+      }
 
-      fetch('https://31.205.207.19: 3000/users', {
+      if (this.state.password === '') {
+        Alert.alert('Password cannot be empty!');
+        return;
+      }
+
+      // fetch('http://facebook.github.io/react-native/movies.json')
+      // .then((response) => response.json())
+      // .then((responseJson) => {
+      //   alert("s")
+      //   return responseJson.movies;
+      // })
+      // .catch((error) => {
+      //   console.error(error);
+      // });
+
+      // alert(this.state.username);
+
+      fetch('http://127.0.0.1:3000/users', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -48,10 +67,8 @@ export default class HomeScreen extends React.Component {
         })
       })   
       .then((response) => response.json()) 
-      .then((res) => {
-
-        alert(res.message);
-
+      .then((res) => {   
+        alert(res.message)     
         if (res.success === true) {
           AsyncStorage.setItem('user', res.user);
           this.props.navigation.navigate('Menu');
@@ -62,7 +79,6 @@ export default class HomeScreen extends React.Component {
       })
       .catch((err) => {
         console.error(err);
-        console.log('sad error appear');
       })
       .done();
     }
@@ -96,7 +112,7 @@ export default class HomeScreen extends React.Component {
           />
           <Button
               title="Login"
-              // onPress= {this.login} 
+              // onPress= {this.login.bind(this)} 
               onPress={() =>this.props.navigation.navigate('Menu')}
             />
           <Button
