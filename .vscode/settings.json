@@ -1,3 +1,14 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "sqltools.connections": [
+        {
+            "database": "medical-drawings",
+            "dialect": "MSSQL",
+            "name": "team-30-medical-drawings",
+            "password": "Team30medicaldrawing",
+            "port": 1433,
+            "server": "team-30-medical-drawings.database.windows.net",
+            "username": "sylvia"
+        }
+    ]
 }
