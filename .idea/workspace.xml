@@ -29,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/Misc/Point.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/LarynxPicScreen.js" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
@@ -62,7 +62,7 @@
       <workItem from="1578931905459" duration="5616000" />
       <workItem from="1578950137613" duration="3133000" />
       <workItem from="1578957966564" duration="2379000" />
-      <workItem from="1578993069288" duration="14308000" />
+      <workItem from="1578993069288" duration="21853000" />
     </task>
     <servers />
   </component>
@@ -74,10 +74,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="413" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1578994472652" />
-    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1579019757878">
+    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1579026648733">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1579019757878" />
+    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1579026648733" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1578937465408">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
