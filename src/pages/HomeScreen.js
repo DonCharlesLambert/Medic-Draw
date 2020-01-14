@@ -47,9 +47,12 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
         <View>
-          <Header centerComponent={{text: 'MEDIC DRAW', style: {top: 0, fontSize: 20, color: '#fff'}}}/>
+          <Header centerComponent={{text: 'medical draw', style: {top: 0, fontSize: 20, color: '#fff'}}}/>
           <ImageBackground source={require('../../img/background.jpg')} style={styles.container}>
-            <Text style={{color: "black", fontSize: 20}}>WELCOME!</Text>
+              <Image
+                  style={{width: 150, height: 150, marginBottom: 50, marginTop:-200}}
+                  source={require('../../img/blankprofile.jpg')}
+              />
               <TextInput
                   style={styles.input}
                   placeholder={"username"}
@@ -69,15 +72,20 @@ export default class HomeScreen extends React.Component {
                   value={this.state.password}
                   secureTextEntry={true}
               />
-            <Button
-                title="Login"
+            <View style={{flexDirection:'row'}}>
+            <TouchableOpacity
+                style = {styles.button}
                 onPress={this.login.bind(this)}
-                // onPress={() =>this.props.navigation.navigate('Profile')}
-            />
-            <Button
-                title="Do not have an account? Sign Up!"
-                onPress={() => this.props.navigation.navigate('CreateAccount')}// {this.login} // {() =>this.props.navigation.navigate('CreateAccount')}
-            />
+            >
+              <Text style = {styles.buttonText}>Login</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style = {styles.button}
+                onPress={() => this.props.navigation.navigate('CreateAccount')}
+            >
+              <Text style = {styles.buttonText}>Sign Up</Text>
+            </TouchableOpacity>
+            </View>
           </ImageBackground>
         </View>
     );
@@ -102,6 +110,14 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: '70%',
+    width: '30%',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    alignItems: 'center',
+    margin: 5,
+    marginTop: 15,
+  },
+
+  buttonText: {
+    color: 'rgba(10, 10, 10, 0.7)',
   }
 });

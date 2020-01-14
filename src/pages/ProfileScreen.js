@@ -21,7 +21,7 @@ export default class ProfileScreen extends React.Component {
                 centerComponent={{ text: 'Profile', style: {fontSize: 20, color: '#fff' } }}
                 rightComponent={{ icon: 'home', color: '#fff' }}
                 />
-              <Image style = {styles.image} source={require('../../img/doctor_profile.jpg')} resizeMode="contain"></Image>
+              <Image style = {styles.image} source={require('../../img/profile.png')} resizeMode="contain"></Image>
 
               <Text style = {styles.textInput}>Doctor: nameOfDoctor</Text>
               <Text style = {styles.textInput}>Doctor Number: 12345678</Text>
