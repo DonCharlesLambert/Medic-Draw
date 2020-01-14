@@ -47,5 +47,4 @@ export default class CheckBtn extends Component{
         }
         
     }
-
     // http://www.manongjc.com/article/64354.html
