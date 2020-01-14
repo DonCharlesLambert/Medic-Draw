@@ -20,9 +20,8 @@ import HeadScreen from './src/pages/HeadScreen';
 import LarynxPicScreen from './src/pages/LarynxPicScreen';
 import DrawingScreen from './src/pages/DrawingScreen';
 import QuestionScreen from './src/pages/QuestionScreen';
-import SelectVersionScreen from './src/pages/SelectVersionScreen';
 import ResultScreen from './src/pages/ResultScreen';
-
+import ListOfPatientsScreen from './src/pages/ListOfPatientsScreen';
 
 
 
@@ -57,8 +56,8 @@ export const BottomTab = createAppContainer(
           ),
         },
       },
-      SelectVersionScreen: {
-        screen: SelectVersionScreen,
+      ResultScreen: {
+        screen: ResultScreen,
         navigationOptions: {
           tabBarLabel: '页3',
           tabBarIcon: ({tintColor, focused}) => (
@@ -95,8 +94,8 @@ const RootStack = createStackNavigator(
     LarynxPic: LarynxPicScreen,
     Drawing: DrawingScreen,
     Question: QuestionScreen,
-    SelectVersion: SelectVersionScreen,
     Result: ResultScreen,
+    ListOfPatients: ListOfPatientsScreen
   },
   {
     initialRouteName: 'Home',

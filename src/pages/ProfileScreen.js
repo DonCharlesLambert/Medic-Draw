@@ -10,7 +10,7 @@ export default class ProfileScreen extends React.Component {
     };
 
     Exported = () => {
-        this.props.navigation.navigate('Menu');
+        this.props.navigation.navigate('Patients');
     }
 
     render() {
@@ -33,7 +33,7 @@ export default class ProfileScreen extends React.Component {
 
           <Button
             title="Edit Existing Patient"
-            onPress={() => this.props.navigation.navigate('CreateNewPatient')}
+            onPress={() => this.props.navigation.navigate('ListOfPatients')}
           />
 
           <Button

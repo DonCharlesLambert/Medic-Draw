@@ -26,7 +26,7 @@ export default class drawingScreen extends React.Component {
             />
               <Button
                 title="Submit"
-                onPress={() => this.props.navigation.navigate('SelectVersion')}
+                onPress={() => this.props.navigation.navigate('Result')}
               />
             </View>
           );
