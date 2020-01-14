@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8efd20aa-4c76-4ae9-8c2a-ac221db7ae7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomeScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,8 @@
       <workItem from="1578931905459" duration="5616000" />
       <workItem from="1578950137613" duration="3133000" />
       <workItem from="1578957966564" duration="2379000" />
-      <workItem from="1578993069288" duration="21853000" />
+      <workItem from="1578993069288" duration="21859000" />
+      <workItem from="1579034707961" duration="3726000" />
     </task>
     <servers />
   </component>
