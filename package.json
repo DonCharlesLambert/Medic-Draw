@@ -8,18 +8,24 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@terrylinla/react-native-sketch-canvas": "jramalho/react-native-sketch-canvas",
     "expo": "~36.0.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-branch": "^4.2.1",
     "react-native-gesture-handler": "^1.5.3",
+    "react-native-sketch": "^1.1.0",
+    "react-native-sketch-draw": "^2.0.2",
+    "react-native-svg": "^10.1.0",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.10.3"
+    "react-navigation-stack": "^1.10.3",
+    "rn-expo-draw": "0.0.5"
   },
   "devDependencies": {
-    "babel-preset-expo": "~8.0.0",
-    "@babel/core": "^7.0.0"
+    "@babel/core": "^7.0.0",
+    "babel-preset-expo": "~8.0.0"
   },
   "private": true
 }
