@@ -5,7 +5,10 @@ export default class AnotherScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Create New Patient',
-    };
+    headerStyle: {
+      backgroundColor: '#75E6DA',
+    },
+  };
 
   constructor(props){
     super(props);
