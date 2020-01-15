@@ -1,0 +1,69 @@
+<Header centerComponent={{ text: 'MEDIC DRAW', style: { fontSize: 20, color: '#fff' } }} />
+
+
+  //   login = () => {
+  //     alert(this.state.username);
+  //     fetch("https://89.36.71.180: 3000/users", {
+  //       method: "POST",
+  //       headers: {
+  //         'Accept': 'application/json',
+  //         'Content-type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         username: this.state.username,
+  //         password: this.state.password,
+  //       })
+  //     })
+  //     .then((response) => response.json())
+  //     .then((res) => {
+  //       if (res.success === true) {
+  //         AsyncStorage.setItem('user', res.user);
+  //         this.props.navigation.navigate('Menu');
+  //       }
+  //       else {
+  //         alert(res.message);
+  //       }
+
+  //     })
+  //     .done();
+  //   }
+  }
+
+// fetch('http://facebook.github.io/react-native/movies.json')
+    // .then((response) => response.json())
+    // .then((responseJson) => {
+    //   alert("s")
+    //   return responseJson.movies;
+    // })
+    // .catch((error) => {
+    //   console.error(error);
+    // });
+
+    // alert(this.state.username);
+
+    // fetch('http://127.0.0.1:3000/users', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     username: this.state.username,
+    //     password: this.state.password,
+    //   })
+    // })
+    // .then((response) => response.json())
+    // .then((res) => {
+    //   alert(res.message)
+    //   if (res.success === true) {
+    //     AsyncStorage.setItem('user', res.user);
+    //     this.props.navigation.navigate('Menu');
+    //   }
+    //   else {
+    //     alert(res.message);
+    //   }
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    // })
+    // .done();

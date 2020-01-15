@@ -49,10 +49,10 @@ export default class HomeScreen extends React.Component {
         <View>
           <Header
               containerStyle={{
-                backgroundColor: '#75E6DA',
+                backgroundColor: '#bde0eb',
                 justifyContent: 'space-around',
               }}
-              centerComponent={{text: 'Medical Draw', style: {top: 0, fontSize: 20, color: '#000'}}}
+              centerComponent={{text: 'Medical Draw', style: {top: 0, fontWeight: "bold", fontSize: 20, color: '#034fa1'}}}
           />
           <ImageBackground style={styles.container}>
               <Image
@@ -100,7 +100,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#00e0db',
+    backgroundColor: '#f2f3f4',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     width: '70%',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: '#add8e6',
     marginBottom: '2.5%',
     borderRadius: 10,
     padding: 15
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 
   button: {
     width: '30%',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: '#cee8f0',
     alignItems: 'center',
     margin: 5,
     marginTop: 15,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#034fa1',
     fontSize: 17,
   }
 });

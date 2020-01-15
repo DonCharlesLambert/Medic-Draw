@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Image, View, Button, Text, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
+import {Svg, Image, View, Text, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
 import { Header } from 'react-native-elements';
 
 
@@ -18,19 +18,19 @@ export default class ProfileScreen extends React.Component {
             <View>
               <Header
                 containerStyle={{
-                   backgroundColor: '#75E6DA',
+                   backgroundColor: '#bde0eb',
                    justifyContent: 'space-around',
                 }}
-                leftComponent={{ icon: 'menu', color: '#fff' }}
+                //leftComponent={{ icon: 'menu', color: '#fff' }}
                 centerComponent={{ text: 'Profile', style: {fontSize: 20, color: '#fff' } }}
-                rightComponent={{ icon: 'home', color: '#fff' }}
+                //rightComponent={{ icon: 'home', color: '#fff' }}
                 />
 
               <ImageBackground style={styles.container}>
                   <View style={styles.profile}>
                       <Image style = {styles.image} source={require('../../img/profile.png')} resizeMode="contain"/>
                       <View style = {{height: 80, marginTop: 25}}>
-                          <Text style = {styles.text}>Doctor        : nameOfDoctor</Text>
+                          <Text style = {styles.text}>Doctor : nameOfDoctor</Text>
                           <Text style = {styles.text}>Doctor Number : 12345678</Text>
                           <Text style = {styles.text}>Patient Number: 39</Text>
                       </View>
@@ -40,18 +40,21 @@ export default class ProfileScreen extends React.Component {
                           style = {styles.button}
                           onPress={() => this.props.navigation.navigate('CreateNewPatient')}
                       >
+                          <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>Create New Patient</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
-                          onPress={() => this.props.navigation.navigate('Result')}
+                          onPress={() => this.props.navigation.navigate('UICC Version View')}
                       >
+                          <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>View UICC Version</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
                           onPress={() => this.props.navigation.navigate('ListOfPatients')}
                       >
+                          <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>Edit Existing Patients</Text>
                       </TouchableOpacity>
                   </View>
@@ -63,7 +66,7 @@ export default class ProfileScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#00e0db',
+      backgroundColor: '#f2f3f4',
       height: '100%',
       alignItems: 'center',
     },
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         flexDirection:'row',
         marginTop: 40,
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        backgroundColor: '#cee8f0',
         borderRadius: 30,
         width: '95%',
         height: 110,
@@ -89,16 +92,22 @@ const styles = StyleSheet.create({
     button: {
         width: 300,
         height: 50,
-        backgroundColor: 'rgba(255, 255, 255, 0.6)',
+        backgroundColor: '#cee8f0',
         alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
         margin: 5,
         marginTop: 15,
         borderRadius: 15,
     },
+    buttonImg: {
+        width: 35,
+        height: 35,
+        margin: 10
+    },
     buttonText: {
         color: 'rgba(10, 10, 10, 0.7)',
         fontSize: 20,
-        marginTop: 10,
     }
   });
   

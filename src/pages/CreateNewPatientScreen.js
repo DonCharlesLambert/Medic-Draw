@@ -1,26 +1,48 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, ScrollView, ToastAndroid, Button, TextInput, Alert, TouchableOpacity, ActionSheetIOS } from 'react-native';
+import { StyleSheet, Alert, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
 export default class AnotherScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Create New Patient',
     headerStyle: {
-      backgroundColor: '#75E6DA',
+      backgroundColor: '#bde0eb',
     },
   };
 
   constructor(props){
     super(props);
     this.state= {
+        image: '',
         name:'',
-        DOB:''
+        DOB:'',
     }
   }
+
+    getImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1
+        });
+
+        console.log(result);
+
+        if (!result.cancelled) {
+            this.setState({ image: result.uri });
+            this.forceUpdate();
+        }
+    };
 
     render() {
       return (
           <View style={styles.container}>
+                <TouchableOpacity onPress={() => this.getImage()}>
+                    <Image style={styles.image} source = {{uri: this.state.image}} />
+                </TouchableOpacity>
+
                 <TextInput
                 style={styles.input}
                 placeholder="Name"
@@ -48,8 +70,7 @@ export default class AnotherScreen extends React.Component {
               <TextInput
               style={styles.multinput}
               multiline={true}
-              placeholder="Symptom"
-              autoCorrect={false}
+              placeholder="Symptoms"
               clearButtonMode="always"
               />
 
@@ -67,14 +88,23 @@ export default class AnotherScreen extends React.Component {
   const styles = StyleSheet.create({
     container: {
       height: '100%',
-      backgroundColor: '#00e0db',
+      backgroundColor: '#f2f3f4',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    image: {
+      height: 150,
+      width: 150,
+      resizeMode: 'contain',
+      marginBottom: '2.5%',
+      borderColor: '#bde0eb',
+      borderWidth: 10,
+      borderRadius: 10,
     },
     input: {
       height: 40,
       width: '70%',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      backgroundColor: '#add8e6',
       marginBottom: '2.5%',
       borderRadius: 10,
       padding: 15
@@ -82,21 +112,21 @@ export default class AnotherScreen extends React.Component {
     multinput: {
       height: 100,
       width: '70%',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      backgroundColor: '#add8e6',
       marginBottom: '2.5%',
       borderRadius: 10,
       padding: 15
     },
     button: {
       width: '30%',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      backgroundColor: '#cee8f0',
       alignItems: 'center',
       margin: 5,
       marginTop: 15,
       borderRadius: 10,
     },
     buttonText: {
-      color: 'rgba(255, 255, 255, 0.7)',
+      color: '#034fa1',
       fontSize: 17,
     }
   })
