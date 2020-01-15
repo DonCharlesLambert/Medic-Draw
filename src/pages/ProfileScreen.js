@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Svg, Image, View, Text, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
+import { Image, View, Text, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
 import { Header } from 'react-native-elements';
 
 
@@ -45,7 +45,7 @@ export default class ProfileScreen extends React.Component {
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
-                          onPress={() => this.props.navigation.navigate('UICC Version View')}
+                          onPress={() => this.props.navigation.navigate('UICCVersionView')}
                       >
                           <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>View UICC Version</Text>

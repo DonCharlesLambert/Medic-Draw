@@ -22,61 +22,55 @@ import DrawingScreen from './src/pages/DrawingScreen';
 import QuestionScreen from './src/pages/QuestionScreen';
 import ResultScreen from './src/pages/ResultScreen';
 import ListOfPatientsScreen from './src/pages/ListOfPatientsScreen';
+import UICCVersionViewScreen from './src/pages/UICCVersionViewScreen';
 
 
-
-export const BottomTab = createAppContainer(
-  createBottomTabNavigator(
-    {
-      /*Page1路由*/
-      ProfileScreen: {
-        /*Page1页面*/
-        screen: ProfileScreen,
-        /*屏幕导航选项,可以定制导航器显示屏幕的方式（头部标题，选项卡标签等）*/
-        navigationOptions: {
-          /*导航标签名*/
-          tabBarLabel: '页1',
-          /*导航呈现的图标*/
-          tabBarIcon: ({tintColor, focused}) => (
-            /*第三方图标库（图标名称，图标大小，图标样式*/
-            <MaterialIcons name={'home'} size={26} style={{color: tintColor}} />
-          ),
-        },
-      },
-      CreateNewPatient: {
-        screen: CreateNewPatientScreen,
-        navigationOptions: {
-          tabBarLabel: '页2',
-          tabBarIcon: ({tintColor, focused}) => (
-            <MaterialIcons
-              name={'location-on'}
-              size={26}
-              style={{color: tintColor}}
-            />
-          ),
-        },
-      },
-      ResultScreen: {
-        screen: ResultScreen,
-        navigationOptions: {
-          tabBarLabel: '页3',
-          tabBarIcon: ({tintColor, focused}) => (
-            <MaterialIcons
-              name={'assignment'}
-              size={26}
-              style={{color: tintColor}}
-            />
-          ),
-        },
-      },
-    },
-    {
-      tabBarOptions: {
-        activeTintColor: Platform.OS === 'ios' ? '#06C1AE' : '#06C1AE',
-      },
-    },
-  ),
-);
+// export const BottomTab = createAppContainer(
+//   createBottomTabNavigator(
+//     {
+//       ProfileScreen: {
+//         screen: ProfileScreen,
+//         navigationOptions: {
+//           tabBarLabel: '页1',
+//           tabBarIcon: ({tintColor, focused}) => (
+//             <MaterialIcons name={'home'} size={26} style={{color: tintColor}} />
+//           ),
+//         },
+//       },
+//       CreateNewPatient: {
+//         screen: CreateNewPatientScreen,
+//         navigationOptions: {
+//           tabBarLabel: '页2',
+//           tabBarIcon: ({tintColor, focused}) => (
+//             <MaterialIcons
+//               name={'location-on'}
+//               size={26}
+//               style={{color: tintColor}}
+//             />
+//           ),
+//         },
+//       },
+//       ResultScreen: {
+//         screen: ResultScreen,
+//         navigationOptions: {
+//           tabBarLabel: '页3',
+//           tabBarIcon: ({tintColor, focused}) => (
+//             <MaterialIcons
+//               name={'assignment'}
+//               size={26}
+//               style={{color: tintColor}}
+//             />
+//           ),
+//         },
+//       },
+//     },
+//     {
+//       tabBarOptions: {
+//         activeTintColor: Platform.OS === 'ios' ? '#06C1AE' : '#06C1AE',
+//       },
+//     },
+//   ),
+// );
 
 
 const RootStack = createStackNavigator(
@@ -95,7 +89,8 @@ const RootStack = createStackNavigator(
     Drawing: DrawingScreen,
     Question: QuestionScreen,
     Result: ResultScreen,
-    ListOfPatients: ListOfPatientsScreen
+    ListOfPatients: ListOfPatientsScreen,
+    UICCVersionView: UICCVersionViewScreen
   },
   {
     initialRouteName: 'Home',
