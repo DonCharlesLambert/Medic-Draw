@@ -21,16 +21,16 @@ export default class ProfileScreen extends React.Component {
                    backgroundColor: '#75E6DA',
                    justifyContent: 'space-around',
                 }}
-                leftComponent={{ icon: 'menu', color: '#fff' }}
+                // leftComponent={{ icon: 'menu', color: '#fff' }}
                 centerComponent={{ text: 'Profile', style: {fontSize: 20, color: '#fff' } }}
-                rightComponent={{ icon: 'home', color: '#fff' }}
+                // rightComponent={{ icon: 'home', color: '#fff' }}
                 />
 
               <ImageBackground style={styles.container}>
                   <View style={styles.profile}>
                       <Image style = {styles.image} source={require('../../img/profile.png')} resizeMode="contain"/>
                       <View style = {{height: 80, marginTop: 25}}>
-                          <Text style = {styles.text}>Doctor        : nameOfDoctor</Text>
+                          <Text style = {styles.text}>Doctor : nameOfDoctor</Text>
                           <Text style = {styles.text}>Doctor Number : 12345678</Text>
                           <Text style = {styles.text}>Patient Number: 39</Text>
                       </View>
@@ -44,7 +44,7 @@ export default class ProfileScreen extends React.Component {
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
-                          onPress={() => this.props.navigation.navigate('Result')}
+                          onPress={() => this.props.navigation.navigate('UICCVersionView')}
                       >
                           <Text style = {styles.buttonText}>View UICC Version</Text>
                       </TouchableOpacity>
