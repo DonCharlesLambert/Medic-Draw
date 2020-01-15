@@ -5,6 +5,9 @@ import RadiusBtn from '../CustomedComponent/RadiusBtn';
 export default class WholeBodyScreen extends React.Component {
     static navigationOptions = {
         title: 'Body',
+        headerStyle: {
+            backgroundColor: '#bde0eb',
+        },
         };
         
     render() {
@@ -17,8 +20,6 @@ export default class WholeBodyScreen extends React.Component {
                             color: '#ffffff',
                           }}
                 btnStyle= {{
-                            // backgroundColor: '#9d78ff',
-                            // borderColor: '#9d78ff',
                             width: 50,
                             height: 50,
                             borderRadius: 25,

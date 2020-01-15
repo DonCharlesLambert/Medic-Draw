@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8efd20aa-4c76-4ae9-8c2a-ac221db7ae7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/UICCVersionViewScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DrawingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DrawingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/QuestionScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/QuestionScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/WholeBodyScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/WholeBodyScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
       <workItem from="1578957966564" duration="2379000" />
       <workItem from="1578993069288" duration="21859000" />
       <workItem from="1579034707961" duration="16426000" />
-      <workItem from="1579095268227" duration="4969000" />
+      <workItem from="1579095268227" duration="12439000" />
     </task>
     <servers />
   </component>
