@@ -8,7 +8,6 @@ export default class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.login = this.login.bind(this);
     this.state = {
       username: '',
       password: '',
@@ -41,14 +40,21 @@ export default class HomeScreen extends React.Component {
       return;
     }
 
+    Alert.alert('Welcome ' + this.state.username);
     this.props.navigation.navigate('Profile');
   }
 
   render() {
     return (
         <View>
-          <Header centerComponent={{text: 'medical draw', style: {top: 0, fontSize: 20, color: '#fff'}}}/>
-          <ImageBackground source={require('../../img/background.jpg')} style={styles.container}>
+          <Header
+              containerStyle={{
+                backgroundColor: '#75E6DA',
+                justifyContent: 'space-around',
+              }}
+              centerComponent={{text: 'Medical Draw', style: {top: 0, fontSize: 20, color: '#000'}}}
+          />
+          <ImageBackground style={styles.container}>
               <Image
                   style={{width: 150, height: 150, marginBottom: 50, marginTop:-200}}
                   source={require('../../img/blankprofile.jpg')}
@@ -94,7 +100,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: '#00e0db',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -115,9 +121,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 5,
     marginTop: 15,
+    borderRadius: 10,
   },
 
   buttonText: {
-    color: 'rgba(10, 10, 10, 0.7)',
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 17,
   }
 });

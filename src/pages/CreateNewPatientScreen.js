@@ -17,75 +17,83 @@ export default class AnotherScreen extends React.Component {
 
     render() {
       return (
-        <ScrollView style={{flex: 1}}>
           <View style={styles.container}>
-              <Text>Name</Text>
+                <TextInput
+                style={styles.input}
+                placeholder="Name"
+                autoCorrect={false}
+                clearButtonMode="always"
+                onChangeText={(name)=>this.setState({name})}
+                />
 
               <TextInput
-              style={styles.input}
-              placeholder="Name"
-              autoCorrect={false}
-              clearButtonMode="always"
-              onChangeText={(name)=>this.setState({name})}
-              ></TextInput>
+                style={styles.input}
+                placeholder="DOB"
+                autoCorrect={false}
+                clearButtonMode="always"
+                onChangeText={(DOB)=>this.setState({DOB})}
+              />
 
-            <Text>DOB</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="DOB"
-              autoCorrect={false}
-              clearButtonMode="always"
-              onChangeText={(DOB)=>this.setState({DOB})}
-            ></TextInput>
-
-              <Text>Hosptical Number</Text>
               <TextInput
               style={styles.input}
               // keyboardType="numeric"
-              placeholder="Hosptical Number"
+              placeholder="Hospital Number"
               autoCorrect={false}
               clearButtonMode="always"
-              ></TextInput>
+              />
 
-              <Text>Symptom</Text>
               <TextInput
-              style={ 
-              {height: 100, 
-              width: '60%',
-              borderColor: 'gray',
-              marginBottom: '2.5%',
-              borderWidth: 1}}
+              style={styles.multinput}
               multiline={true}
               placeholder="Symptom"
               autoCorrect={false}
               clearButtonMode="always"
-              ></TextInput>
+              />
 
-              <Button
-                title="Submit"
-                // onPress={()=>{this.NewPatientMethod(this.state)}}>
+            <TouchableOpacity
+                style = {styles.button}
                 onPress={() => this.props.navigation.navigate('WholeBody')}
-              ></Button>
+            >
+              <Text style = {styles.buttonText}>Submit</Text>
+            </TouchableOpacity>
           </View>
-        </ScrollView>
-
       );
     }
   }
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      marginTop: 30,
-      backgroundColor: '#fff',
+      height: '100%',
+      backgroundColor: '#00e0db',
       alignItems: 'center',
       justifyContent: 'center',
     },
     input: {
       height: 40,
-      width: '60%',
-      borderColor: 'gray',
+      width: '70%',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
       marginBottom: '2.5%',
-      borderWidth: 1
+      borderRadius: 10,
+      padding: 15
     },
+    multinput: {
+      height: 100,
+      width: '70%',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      marginBottom: '2.5%',
+      borderRadius: 10,
+      padding: 15
+    },
+    button: {
+      width: '30%',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      alignItems: 'center',
+      margin: 5,
+      marginTop: 15,
+      borderRadius: 10,
+    },
+    buttonText: {
+      color: 'rgba(255, 255, 255, 0.7)',
+      fontSize: 17,
+    }
   })
