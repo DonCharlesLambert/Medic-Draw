@@ -17,6 +17,7 @@ export default class AnotherScreen extends React.Component {
         image: '',
         name:'',
         DOB:'',
+        HospitalNo:'',
     }
   }
 
@@ -35,6 +36,30 @@ export default class AnotherScreen extends React.Component {
             this.forceUpdate();
         }
     };
+
+    submit = () => {
+      
+    }
+
+    submit = () => {
+      // pls comment for test convenience
+      if (this.state.name === '') {
+        Alert.alert('Patient name cannot be empty!');
+        return;
+      }
+  
+      if (this.state.DOB === '') {
+        Alert.alert('DOB cannot be empty!');
+        return;
+      }
+
+      if (this.state.HospitalNo === '') {
+        Alert.alert('Hospital number cannot be empty!');
+        return;
+      }
+
+      this.props.navigation.navigate('WholeBody');
+    }
 
     render() {
       return (
@@ -65,6 +90,8 @@ export default class AnotherScreen extends React.Component {
               placeholder="Hospital Number"
               autoCorrect={false}
               clearButtonMode="always"
+              onChangeText={(HospitalNo)=>this.setState({HospitalNo})}
+
               />
 
               <TextInput
@@ -76,7 +103,7 @@ export default class AnotherScreen extends React.Component {
 
             <TouchableOpacity
                 style = {styles.button}
-                onPress={() => this.props.navigation.navigate('WholeBody')}
+                onPress={this.submit.bind(this)}
             >
               <Text style = {styles.buttonText}>Submit</Text>
             </TouchableOpacity>

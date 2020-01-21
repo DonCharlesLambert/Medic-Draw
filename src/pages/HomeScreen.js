@@ -30,17 +30,7 @@ export default class HomeScreen extends React.Component {
   };
 
   login = () => {
-    if (this.state.username === '') {
-      Alert.alert('Username cannot be empty!');
-      return;
-    }
-
-    if (this.state.password === '') {
-      Alert.alert('Password cannot be empty!');
-      return;
-    }
-
-    Alert.alert('Welcome ' + this.state.username);
+    // Alert.alert('Welcome ' + this.state.username);
     this.props.navigation.navigate('Profile');
   }
 
@@ -54,12 +44,17 @@ export default class HomeScreen extends React.Component {
               }}
               centerComponent={{text: 'Medical Draw', style: {top: 0, fontWeight: "bold", fontSize: 20, color: '#034fa1'}}}
           />
-          <ImageBackground style={styles.container}>
-              <Image
-                  style={{width: 150, height: 150, marginBottom: 50, marginTop:-200}}
-                  source={require('../../img/blankprofile.jpg')}
-              />
-              <TextInput
+        <TouchableOpacity onPress={ this.login}>
+            <Image style={{width: 400, height: 1000}} source={require('../../img/welcome_page.png')} />
+          </TouchableOpacity>
+          
+          {/* <ImageBackground style={styles.container}> */}
+            {/* <TouchableHighlight onPress={() => this.moveToAddNewCustomer()}> */}
+              {/* <Image */}
+                  {/* style={{width: 500, height: 1000}}
+                  source={require('../../img/blankprofile.png')}
+              /> */}
+              {/* <TextInput
                   style={styles.input}
                   placeholder={"username"}
                   autoCorrect={false}
@@ -91,8 +86,9 @@ export default class HomeScreen extends React.Component {
             >
               <Text style = {styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
-            </View>
-          </ImageBackground>
+            </View> */}
+          {/* </ImageBackground> */}
+
         </View>
     );
   }
