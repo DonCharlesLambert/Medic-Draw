@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, ImageBackground, Button, TextInput, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Dimensions, TextInput, Alert, TouchableOpacity } from 'react-native';
 import RadiusBtn from '../CustomedComponent/RadiusBtn';
 
 export default class WholeBodyScreen extends React.Component {
@@ -37,8 +37,8 @@ export default class WholeBodyScreen extends React.Component {
 
 const styles = StyleSheet.create({
     background: {
-        width: '100%',
-        height: '100%',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
         justifyContent: "center",
         alignItems: "center",
       }

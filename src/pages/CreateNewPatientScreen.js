@@ -42,21 +42,21 @@ export default class AnotherScreen extends React.Component {
     }
 
     submit = () => {
-      // pls comment for test convenience
-      if (this.state.name === '') {
-        Alert.alert('Patient name cannot be empty!');
-        return;
-      }
+      // comment for test convenience
+      // if (this.state.name === '') {
+      //   Alert.alert('Patient name cannot be empty!');
+      //   return;
+      // }
   
-      if (this.state.DOB === '') {
-        Alert.alert('DOB cannot be empty!');
-        return;
-      }
+      // if (this.state.DOB === '') {
+      //   Alert.alert('DOB cannot be empty!');
+      //   return;
+      // }
 
-      if (this.state.HospitalNo === '') {
-        Alert.alert('Hospital number cannot be empty!');
-        return;
-      }
+      // if (this.state.HospitalNo === '') {
+      //   Alert.alert('Hospital number cannot be empty!');
+      //   return;
+      // }
 
       this.props.navigation.navigate('WholeBody');
     }

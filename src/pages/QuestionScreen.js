@@ -11,7 +11,7 @@ export default class drawingScreen extends React.Component {
 
     render() {
         return (
-            <View style={{alignItems: 'center', justifyContent: 'space-around', height: 300}}>
+            <View style={{alignItems: 'center', justifyContent: 'space-around', height: 450}}>
               <View style={styles.theBox}>
                   <Text style={{fontWeight: 'bold', marginBottom: 10, color: '#f2f3f4'}}>Size of the tumour</Text>
                   <CheckBtn
@@ -41,12 +41,12 @@ export default class drawingScreen extends React.Component {
                  placeholder="Comments"
                  multiline={true}/>
 
-                <TouchableOpacity
-                    style = {styles.button}
-                    onPress={() => this.props.navigation.navigate('Result')}
-                >
-                    <Text style = {styles.buttonText}>Submit</Text>
-                </TouchableOpacity>
+              <TouchableOpacity
+                style = {styles.button}
+                onPress={() => this.props.navigation.navigate('Result')}
+              >
+                <Text style = {styles.buttonText}>Submit</Text>
+              </TouchableOpacity>
             </View>
           );
     }
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         height: 100,
         width: '70%',
         backgroundColor: '#add8e6',
-        marginTop: 40,
+        marginTop: 50,
         borderRadius: 20,
         padding: 15
     },
@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 20,
         width: '70%',
-        marginTop: 40,
+        marginTop: 50,
+        marginBottom: 50
     },
     button: {
         width: '30%',
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 5,
         marginTop: 50,
+        marginBottom: 50,
         borderRadius: 10,
     }
   });

@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { StyleSheet, ImageBackground, Text, View, TouchableOpacity, ScrollView, Image, Button, TextInput, Alert, AsyncStorage } from 'react-native';
+import { StyleSheet, ImageBackground, Text, View, TouchableOpacity, Dimensions, Image, Button, TextInput, Alert, AsyncStorage } from 'react-native';
 import { Header } from 'react-native-elements';
 import TouchableHighlight from "react-native-web/dist/exports/TouchableHighlight";
 
@@ -45,8 +45,10 @@ export default class HomeScreen extends React.Component {
               centerComponent={{text: 'Medical Draw', style: {top: 0, fontWeight: "bold", fontSize: 20, color: '#034fa1'}}}
           />
         <TouchableOpacity onPress={ this.login}>
-            <Image style={{width: 400, height: 1000}} source={require('../../img/welcome_page.png')} />
+            <Image style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height}} source={require('../../img/welcome_page.png')} />
           </TouchableOpacity>
+          <Text style={styles.text}>Welcome to Medical Drawing</Text>
+
           
           {/* <ImageBackground style={styles.container}> */}
             {/* <TouchableHighlight onPress={() => this.moveToAddNewCustomer()}> */}
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  input: {
+  text: {
     height: 40,
     width: '70%',
     backgroundColor: '#add8e6',
