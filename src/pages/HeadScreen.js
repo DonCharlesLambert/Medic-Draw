@@ -9,11 +9,15 @@ export default class WholeBodyScreen extends React.Component {
     }
 
     static navigationOptions = {
-        title: 'Body',
-        headerStyle: {
-            backgroundColor: '#bde0eb',
-        },
-    };
+      headerShown: false
+      };
+
+    // static navigationOptions = {
+    //     title: 'Body',
+    //     headerStyle: {
+    //         backgroundColor: '#bde0eb',
+    //     },
+    // };
 
     render() {
         return (
@@ -22,11 +26,11 @@ export default class WholeBodyScreen extends React.Component {
                     btnName='Larynx'
                     textStyle= {{color: '#ffffff'}}
                     btnStyle= {{
-                        top: 420,
-                        left: 15,
-                        height: 50,
-                        width: 50,
-                        borderRadius: 25,
+                        top: '140%',
+                        left: '-100%',
+                        height: 60,
+                        width: 60,
+                        borderRadius: 30,
                     }}
                     onPress={() => this.props.navigation.navigate('LarynxPic')}
                 />

@@ -11,8 +11,8 @@ export default class WholeBodyScreen extends React.Component {
     static navigationOptions = {
         title: 'Body',
         headerStyle: {
-            backgroundColor: '#bde0eb',
-        },
+          backgroundColor: '#bde0eb',
+      },
         };
 
     render() {
@@ -22,11 +22,11 @@ export default class WholeBodyScreen extends React.Component {
                 btnName='Head'
                 textStyle= {{color: '#ffffff'}}
                 btnStyle= {{
-                    top: -20,
-                    left: -5,
-                    height: 50,
-                    width: 50,
-                    borderRadius: 25,
+                    top: '15%',
+                    left: '-10%',
+                    height: 60,
+                    width: 60,
+                    borderRadius: 30,
                 }}
                 onPress={() => this.props.navigation.navigate('Head')}
              />
