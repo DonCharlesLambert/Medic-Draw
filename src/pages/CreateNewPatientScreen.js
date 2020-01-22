@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { StyleSheet, Alert, Text, View, Image, TextInput, TouchableOpacity, AsyncStorage } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 export default class AnotherScreen extends React.Component {
 
@@ -19,6 +20,17 @@ export default class AnotherScreen extends React.Component {
         name:'',
         DOB:'',
         HospitalNo:'',
+    }
+  }
+
+  componentDidMount() {
+    this._loadInitialState().done();
+  }
+
+  _loadInitialState = async () => {
+    var value = await AsyncStorage.getItem('users');
+    if (value !== null) {
+      this.props.navigate('Menu');
     }
   }
 
@@ -57,6 +69,29 @@ export default class AnotherScreen extends React.Component {
 
       this.props.navigation.navigate('WholeBody');
     };
+
+    backendTest = () => {
+      fetch('http://127.0.0.1:3000/users', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: this.state.name,
+          DOB: this.state.DOB,
+          HospitalNo: this.state.HospitalNo,
+        })
+      })
+      .then((response) => response.json())
+      .then ((res) => {
+        if (res.success === true) {
+          AsyncStorage.setItem('user',res.user);
+          this.props.negivation.navigate('wholeBody');
+        }
+      })
+
+    }
 
     render() {
       return (
