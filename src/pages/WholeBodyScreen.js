@@ -3,6 +3,11 @@ import { StyleSheet, Text, View, ImageBackground, Dimensions, TextInput, Alert, 
 import RadiusBtn from '../CustomedComponent/RadiusBtn';
 
 export default class WholeBodyScreen extends React.Component {
+    constructor(props) {
+        super();
+        this.state = {width: Dimensions.get('window').width, height: Dimensions.get('window').height}
+    }
+
     static navigationOptions = {
         title: 'Body',
         headerStyle: {
@@ -12,26 +17,20 @@ export default class WholeBodyScreen extends React.Component {
 
     render() {
       return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', height: 300 }}>
           <ImageBackground style = {styles.background} source={require('../../img/body.png')}>
-            <View style={styles.button}>
-                <RadiusBtn
-                    btnName='Head'
-                    textStyle= {{
-                                color: '#ffffff',
-                              }}
-                    btnStyle= {{
-                                top: -325,
-                                left: -38,
-                                width: 50,
-                                height: 50,
-                                borderRadius: 25,
-                              }}
-                    onPress={() => this.props.navigation.navigate('Head')}
-                />
-            </View>
+             <RadiusBtn
+                btnName='Head'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: -20,
+                    left: -5,
+                    height: 50,
+                    width: 50,
+                    borderRadius: 25,
+                }}
+                onPress={() => this.props.navigation.navigate('Head')}
+             />
           </ImageBackground>
-        </View>
       );
     }
   }
@@ -40,12 +39,6 @@ const styles = StyleSheet.create({
     background: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
-        justifyContent: "center",
-        alignItems: "center",
-      },
-      button: {
-        left: 30,
-        top:30,
       },
 })
   
