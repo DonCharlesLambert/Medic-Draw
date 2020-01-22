@@ -28,31 +28,29 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   console.log('backend');
-  // res.send({message: req.body.username});
-
   // var username = req.body.username;
   // var password = req.body.password;
 
 
-  connection.query(
-    "SHOW TABLES", 
-    // "INSERT INTO users (username, password) values (sylvia test)",
-    function(err, row, field) {
-      console.log('connected');
-      if (err) {
-        console.log(err);
-        res.send ({'success': false, 'message': 'could not connect to database' });
-      }
+  // connection.query(
+  //   "SHOW TABLES", 
+  //   // "INSERT INTO users (username, password) values (sylvia test)",
+  //   function(err, row, field) {
+  //     console.log('connected');
+  //     if (err) {
+  //       console.log(err);
+  //       res.send ({'success': false, 'message': 'could not connect to database' });
+  //     }
 
-      // if (row.length > 0) {
-      //   console.log('found');
-      //   res.send ({'success': true, 'user': row[0].username});
-      // }
-      else {
-        console.log('not found');
-        res.send ({'s uccess': false, 'message': 'user not found'});
-      }
-    });
+  //     // if (row.length > 0) {
+  //     //   console.log('found');
+  //     //   res.send ({'success': true, 'user': row[0].username});
+  //     // }
+  //     else {
+  //       console.log('not found');
+  //       res.send ({'s uccess': false, 'message': 'user not found'});
+  //     }
+  //   });
 });
 
 module.exports = router;

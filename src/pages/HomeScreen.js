@@ -13,16 +13,16 @@ export default class HomeScreen extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this._loadInitialState().done();
-  }
+  // componentDidMount() {
+  //   this._loadInitialState().done();
+  // }
 
-  _loadInitialState = async () => {
-    var value = await AsyncStorage.getItem('users');
-    if (value !== null) {
-      this.props.navigate('Menu');
-    }
-  }
+  // _loadInitialState = async () => {
+  //   var value = await AsyncStorage.getItem('users');
+  //   if (value !== null) {
+  //     this.props.navigate('Menu');
+  //   }
+  // }
 
   static navigationOptions = {
     headerShown: false
