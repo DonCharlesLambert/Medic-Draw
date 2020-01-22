@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import * as ImagePicker from 'expo-image-picker';
 
 export default class AnotherScreen extends React.Component {
@@ -63,9 +64,9 @@ export default class AnotherScreen extends React.Component {
 
     render() {
       return (
-          <KeyboardAvoidingView behaviour="padding" style={styles.container}>
+          <KeyboardAwareScrollView keyboardShouldPersistTaps="never" contentContainerStyle={styles.container}>
                 <TouchableOpacity onPress={() => this.getImage()}>
-                    <Image style={styles.image} source = {{uri: this.state.image}} />
+                    <Image style={[styles.image, {marginTop: 40}]} source = {{uri: this.state.image}} />
                 </TouchableOpacity>
 
                 <TextInput
@@ -107,17 +108,17 @@ export default class AnotherScreen extends React.Component {
             >
               <Text style = {styles.buttonText}>Submit</Text>
             </TouchableOpacity>
-          </KeyboardAvoidingView>
+          </KeyboardAwareScrollView>
       );
     }
   }
+
 
   const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#f2f3f4',
       alignItems: 'center',
-      justifyContent: 'center',
     },
     image: {
       height: 150,
