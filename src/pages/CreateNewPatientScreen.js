@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Alert, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
 export default class AnotherScreen extends React.Component {
@@ -38,7 +38,7 @@ export default class AnotherScreen extends React.Component {
 
     render() {
       return (
-          <View style={styles.container}>
+          <KeyboardAvoidingView behaviour="padding" style={styles.container}>
                 <TouchableOpacity onPress={() => this.getImage()}>
                     <Image style={styles.image} source = {{uri: this.state.image}} />
                 </TouchableOpacity>
@@ -80,14 +80,14 @@ export default class AnotherScreen extends React.Component {
             >
               <Text style = {styles.buttonText}>Submit</Text>
             </TouchableOpacity>
-          </View>
+          </KeyboardAvoidingView>
       );
     }
   }
 
   const styles = StyleSheet.create({
     container: {
-      height: '100%',
+      flex: 1,
       backgroundColor: '#f2f3f4',
       alignItems: 'center',
       justifyContent: 'center',

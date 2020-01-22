@@ -1,8 +1,7 @@
 
 import * as React from 'react';
-import { StyleSheet, ImageBackground, Text, View, TouchableOpacity, ScrollView, Image, Button, TextInput, Alert, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Keyboard, Image, TextInput, Alert, AsyncStorage, KeyboardAvoidingView } from 'react-native';
 import { Header } from 'react-native-elements';
-import TouchableHighlight from "react-native-web/dist/exports/TouchableHighlight";
 
 export default class HomeScreen extends React.Component {
 
@@ -54,7 +53,11 @@ export default class HomeScreen extends React.Component {
               }}
               centerComponent={{text: 'Medical Draw', style: {top: 0, fontWeight: "bold", fontSize: 20, color: '#034fa1'}}}
           />
-          <ImageBackground style={styles.container}>
+          <KeyboardAvoidingView
+              behaviour="padding"
+              enabled
+              style={styles.container}
+              onPress={Keyboard.dismiss} >
               <Image
                   style={{width: 150, height: 150, marginBottom: 50, marginTop:-200}}
                   source={require('../../img/blankprofile.jpg')}
@@ -78,21 +81,19 @@ export default class HomeScreen extends React.Component {
                   value={this.state.password}
                   secureTextEntry={true}
               />
-            <View style={{flexDirection:'row'}}>
-            <TouchableOpacity
-                style = {styles.button}
-                onPress={this.login.bind(this)}
-            >
-              <Text style = {styles.buttonText}>Login</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style = {styles.button}
-                onPress={() => this.props.navigation.navigate('CreateAccount')}
-            >
-              <Text style = {styles.buttonText}>Sign Up</Text>
-            </TouchableOpacity>
-            </View>
-          </ImageBackground>
+              <View style={{flexDirection:'row'}}>
+                <TouchableOpacity
+                    style = {styles.button}
+                    onPress={this.login.bind(this)}>
+                  <Text style = {styles.buttonText}>Login</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style = {styles.button}
+                    onPress={() => this.props.navigation.navigate('CreateAccount')}>
+                  <Text style = {styles.buttonText}>Sign Up</Text>
+                </TouchableOpacity>
+              </View>
+          </KeyboardAvoidingView>
         </View>
     );
   }
