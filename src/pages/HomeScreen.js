@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Keyboard, Image, TextInput, Alert, AsyncStorage, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Image, TextInput, AsyncStorage, Alert } from 'react-native';
 import { Header } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component {
@@ -29,16 +29,6 @@ export default class HomeScreen extends React.Component {
   };
 
   login = () => {
-    if (this.state.username === '') {
-      Alert.alert('Username cannot be empty!');
-      return;
-    }
-
-    if (this.state.password === '') {
-      Alert.alert('Password cannot be empty!');
-      return;
-    }
-
     Alert.alert('Welcome ' + this.state.username);
     this.props.navigation.navigate('Profile');
   }
@@ -53,47 +43,10 @@ export default class HomeScreen extends React.Component {
               }}
               centerComponent={{text: 'Medical Draw', style: {top: 0, fontWeight: "bold", fontSize: 20, color: '#034fa1'}}}
           />
-          <KeyboardAvoidingView
-              behaviour="padding"
-              enabled
-              style={styles.container}
-              onPress={Keyboard.dismiss} >
-              <Image
-                  style={{width: 150, height: 150, marginBottom: 50, marginTop:-200}}
-                  source={require('../../img/blankprofile.jpg')}
-              />
-              <TextInput
-                  style={styles.input}
-                  placeholder={"username"}
-                  autoCorrect={false}
-                  clearButtonMode="always"
-                  ref="username"
-                  onChangeText={(username) => this.setState({username})}
-                  value={this.state.username}
-              />
-              <TextInput
-                  style={styles.input}
-                  placeholder={"password"}
-                  autoCorrect={false}
-                  clearButtonMode="always"
-                  ref="password"
-                  onChangeText={(password) => this.setState({password})}
-                  value={this.state.password}
-                  secureTextEntry={true}
-              />
-              <View style={{flexDirection:'row'}}>
-                <TouchableOpacity
-                    style = {styles.button}
-                    onPress={this.login.bind(this)}>
-                  <Text style = {styles.buttonText}>Login</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style = {styles.button}
-                    onPress={() => this.props.navigation.navigate('CreateAccount')}>
-                  <Text style = {styles.buttonText}>Sign Up</Text>
-                </TouchableOpacity>
-              </View>
-          </KeyboardAvoidingView>
+        <TouchableOpacity onPress={ this.login}>
+            <Image style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height}} source={require('../../img/welcome_page.png')} />
+          </TouchableOpacity>
+          <Text style={styles.text}>Welcome to Medical Drawing</Text>
         </View>
     );
   }
@@ -107,7 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  input: {
+  text: {
     height: 40,
     width: '70%',
     backgroundColor: '#add8e6',

@@ -63,7 +63,7 @@ export default class drawingScreen extends React.Component {
                         <Slider
                         style={{width: 200, paddingTop: 65}}
                         minimumValue={5}
-                        maximumValue={100}
+                        maximumValue={20}
                         minimumTrackTintColor="#bde0eb"
                         maximumTrackTintColor="#000000"
                         onValueChange={val => this.setState({ size: val })}/>
