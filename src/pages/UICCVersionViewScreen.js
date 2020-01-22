@@ -22,35 +22,32 @@ export default class WholeBodyScreen extends React.Component {
         
     render() {
       return (
-        <View>
-          <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-          <ImageBackground style = {styles.button}>
+       <View style = {{justifyContent: 'center', alignItems: 'center'}}>
+          <ModalDropdown
+              style = {styles.button}
+              onSelect = {this.state.UICCVersion}
+              options={this.state.UICCOptions}
+              defaultValue = {'Change Version: UICC Version 8'}
+              color = {'#bde0eb'}
+              onSelect = {(version) => this.setState({UICCVersion: (String(this.state.UICCOptions[version]))})}
+          />
 
-                <ModalDropdown
-                onSelect = {this.state.UICCVersion} 
-                options={this.state.UICCOptions}
-                defaultValue = {'Change Version: UICC Version 8'} 
-                color = {'#bde0eb'}
-                onSelect = {(version) => this.setState({UICCVersion: (String(this.state.UICCOptions[version]))})}
-                />
-              </ImageBackground>
-            </View>
-            
-            <View style={{flexDirection:'column'}}>
-                <Text style={styles.subTitle}>Larynx ({this.state.UICCVersion})</Text>
-                <Text style={styles.text}>T1: Tumour 2cm or less in greatest dimension.</Text>
-                <Text style={styles.text}>T2: Tumour more than 2cm but not more than 4cm.</Text>
-                <Text style={styles.text}>T3: Tumour more than 4cm in or extension to lingual surface or epiglottis.</Text>
-                <Text style={styles.text}>T4: Tumour invades any of the following: larynx, deep/extrinsic muscle or tongue. </Text>
-              </View>
-            <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-                <TouchableOpacity
-                style = {styles.button}
-                onPress={() => this.props.navigation.navigate('Profile')}>
-                    <Text>Back to Profile</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+          <View style={{flexDirection:'column'}}>
+              <Text style={styles.subTitle}>Larynx ({this.state.UICCVersion})</Text>
+              <Text style={styles.text}>T1: Tumour 2cm or less in greatest dimension.</Text>
+              <Text style={styles.text}>T2: Tumour more than 2cm but not more than 4cm.</Text>
+              <Text style={styles.text}>T3: Tumour more than 4cm in or extension to lingual surface or epiglottis.</Text>
+              <Text style={styles.text}>T4: Tumour invades any of the following: larynx, deep/extrinsic muscle or tongue. </Text>
+          </View>
+           
+          <View style = {{justifyContent: 'center', alignItems: 'center'}}>
+              <TouchableOpacity
+              style = {styles.button}
+              onPress={() => this.props.navigation.navigate('Profile')}>
+                  <Text>Back to Profile</Text>
+              </TouchableOpacity>
+          </View>
+       </View>
       );
     }
   }
@@ -90,7 +87,6 @@ const styles = StyleSheet.create({
 
     button: {
         width: '50%',
-        height: '20%',
         backgroundColor: '#bde0eb',
         alignItems: 'center',
         justifyContent: "center",
