@@ -14,7 +14,7 @@ export default class WholeBodyScreen extends React.Component {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', height: 300 }}>
           <ImageBackground style = {styles.background} source={require('../../img/body.png')}>
-            <RadiusBtn
+            <RadiusBtn style={styles.button}
                 btnName='Head'
                 textStyle= {{
                             color: '#ffffff',
@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
         justifyContent: "center",
         alignItems: "center",
-      }
+      },
+      button: {
+        left: 30,
+        top:30,
+      },
 })
   

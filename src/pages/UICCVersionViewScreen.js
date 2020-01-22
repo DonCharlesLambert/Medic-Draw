@@ -5,6 +5,12 @@ import ModalDropdown from 'react-native-modal-dropdown';
 
 
 export default class WholeBodyScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      UICCVersion: '',
+    }
+  }
     static navigationOptions = {
         title: 'UICC',
         headerStyle: {
@@ -19,11 +25,12 @@ export default class WholeBodyScreen extends React.Component {
           <View style = {{justifyContent: 'center'}, {alignItems: 'center'}}>
           <ImageBackground style = {styles.button}>
 
-                <ModalDropdown 
+                <ModalDropdown
+                onSelect = {this.state.UICCVersion} 
                 options={['UICC Version 8', 'UICC Version 7', 'UICC Version 6','UICC Version 5','UICC Version 4',]} 
                 defaultValue = {'Change Version: UICC Version 8'} 
                 color = {'#bde0eb'}
-                onSelect = {(value) => this.setState()}
+                onSelect = {(UICCVersion) => this.setState()}
                 />
               </ImageBackground>
             </View>

@@ -13,6 +13,7 @@ export default class WholeBodyScreen extends React.Component {
 
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', height: 300 }}>
           <ImageBackground style = {styles.background} source={require('../../img/head.png')}>
+            <View style={styles.button}>
             <RadiusBtn
                 btnName='Larynx'
                 textStyle= {{
@@ -27,6 +28,8 @@ export default class WholeBodyScreen extends React.Component {
                           }}
                 onPress={() => this.props.navigation.navigate('LarynxPic')}
             />
+            </View>
+            
           </ImageBackground>
         </View>
         // </ScrollView>
@@ -41,6 +44,10 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
         justifyContent: "center",
         alignItems: "center",
-      }
+      },
+      button: {
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+      },
 })
   
