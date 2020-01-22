@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8efd20aa-4c76-4ae9-8c2a-ac221db7ae7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreateNewPatientScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreateNewPatientScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/ResultScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/UICCVersionViewScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UICCVersionViewScreen.js" afterDir="false" />
     </list>
@@ -70,7 +71,7 @@
       <workItem from="1579179533899" duration="1957000" />
       <workItem from="1579537120989" duration="2195000" />
       <workItem from="1579625981600" duration="3567000" />
-      <workItem from="1579700615734" duration="12309000" />
+      <workItem from="1579700615734" duration="14675000" />
     </task>
     <servers />
   </component>
@@ -90,6 +91,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="0" width="612" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1579701617584" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1579734356160">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1579734356160" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1578937465408">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

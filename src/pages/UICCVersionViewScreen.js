@@ -25,7 +25,6 @@ export default class WholeBodyScreen extends React.Component {
        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
           <ModalDropdown
               style = {styles.button}
-              onSelect = {this.state.UICCVersion}
               options={this.state.UICCOptions}
               defaultValue = {'Change Version: UICC Version 8'}
               color = {'#bde0eb'}
@@ -102,4 +101,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: "center",
       },
-})
+});

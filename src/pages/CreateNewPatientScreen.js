@@ -39,10 +39,6 @@ export default class AnotherScreen extends React.Component {
     };
 
     submit = () => {
-      
-    }
-
-    submit = () => {
       // comment for test convenience
       // if (this.state.name === '') {
       //   Alert.alert('Patient name cannot be empty!');
@@ -60,7 +56,7 @@ export default class AnotherScreen extends React.Component {
       // }
 
       this.props.navigation.navigate('WholeBody');
-    }
+    };
 
     render() {
       return (
