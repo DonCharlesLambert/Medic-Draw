@@ -83,7 +83,6 @@ export default class drawingScreen extends React.Component {
                 <View style = {{height: '6%'}}>
                     <Button title="Finish" onPress={() => this.props.navigation.navigate('Question')}/>
                 </View>
-
             </View>
         );
     }

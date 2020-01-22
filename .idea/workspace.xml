@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8efd20aa-4c76-4ae9-8c2a-ac221db7ae7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/welcome_page.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/blankprofile.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/blankprofile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/doctor_profile.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/doctor_profile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/CreateNewPatientScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreateNewPatientScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/DrawingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DrawingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HeadScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HeadScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/QuestionScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/QuestionScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/UICCVersionViewScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UICCVersionViewScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/WholeBodyScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/WholeBodyScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +70,7 @@
       <workItem from="1579179533899" duration="1957000" />
       <workItem from="1579537120989" duration="2195000" />
       <workItem from="1579625981600" duration="3567000" />
-      <workItem from="1579700615734" duration="2282000" />
+      <workItem from="1579700615734" duration="3405000" />
     </task>
     <servers />
   </component>
