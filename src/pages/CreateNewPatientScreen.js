@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, Alert, Text, View, Image, TextInput, TouchableOpacity, AsyncStorage } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 export default class AnotherScreen extends React.Component {
 
