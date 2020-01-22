@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, View, Button, Text, Image, Alert } from 'react-native';
+import {StyleSheet, View, Button, Text, Image, Alert, TouchableOpacity} from 'react-native';
 import ModalDropdown from "react-native-modal-dropdown";
 
 
@@ -49,8 +49,22 @@ export default class ResultScreen extends React.Component {
 
                 <View style={{width: '100%'}}>
                     <Text style= {styles.textBold}>Drawing:</Text>
-                    <Image style={{height: '60%', resizeMode: "contain"}} source = {require('../../img/larynx.png')}/>
+                    <Image style={{height: 250, resizeMode: "contain"}} source = {require('../../img/larynx.png')}/>
                 </View>
+                <TouchableOpacity
+                    style = {styles.button}
+                    onPress={() => Alert.alert("Exported dude")}
+                >
+                    <Text style = {styles.buttonText}>Export to PDF</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style = {styles.button}
+                    onPress={() => this.props.navigation.navigate('Profile')}
+                >
+                    <Text style = {styles.buttonText}>Return to Profile</Text>
+                </TouchableOpacity>
+
+
             </View>
           );
     }
