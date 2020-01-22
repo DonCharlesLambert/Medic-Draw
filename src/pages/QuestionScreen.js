@@ -40,6 +40,12 @@ export default class drawingScreen extends React.Component {
                  style={styles.multiLine}
                  placeholder="Comments"
                  multiline={true}/>
+              <TouchableOpacity
+                style = {styles.button}
+                onPress={() => this.props.navigation.navigate('Drawing')}
+              >
+                <Text style = {styles.buttonText}>Create Another Drawing</Text>
+              </TouchableOpacity>              
 
               <TouchableOpacity
                 style = {styles.button}
@@ -74,12 +80,12 @@ const styles = StyleSheet.create({
         marginBottom: 50
     },
     button: {
-        width: '30%',
+        width: '50%',
         backgroundColor: '#cee8f0',
         alignItems: 'center',
         margin: 5,
-        marginTop: 50,
-        marginBottom: 50,
+        marginTop: 30,
+        marginBottom: 30,
         borderRadius: 10,
     }
   });
