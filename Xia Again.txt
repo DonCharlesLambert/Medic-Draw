@@ -1,0 +1,32 @@
+
+            <View>
+              <Text style= {styles.textInput}>Patient Name: Name</Text>
+              <Text style= {styles.textInput}>Patient Age: 63</Text>
+              <Text style= {styles.textInput}>Tumour Area: Upper side of larynx</Text>
+              <Text style= {styles.textInput}>Patient Age: 63</Text>
+              <Text style= {styles.textInputBold}>According to UICC version 8, the tumour level is T3:</Text>
+              <Text style= {styles.textInputBold}>Tumour more than 4cm in or extension to lingual surface of epiglottis. </Text>
+
+              <Image style = {styles.image} source={require('../../img/larynx.png')} resizeMode="contain"/>
+                <Button
+                  title="Change UICC version"
+                  onPress={() => Alert.alert('UICC VERSION','Current Version 8',[
+                    {text:"1", onPress:this.opntion1Selected},
+                    {text:"2", onPress:this.opntion2Selected},
+                    {text:"3", onPress:this.opntion3Selected},
+                    {text:"4", onPress:this.opntion4Selected},
+                    {text:"5", onPress:this.opntion5Selected},
+                    {text:"6", onPress:this.opntion6Selected},
+                    {text:"7", onPress:this.opntion7Selected},
+                    {text:"8", onPress:this.opntion8Selected},
+
+
+
+                  ]
+                )}
+                />
+                <Button
+                  title="Export As PDF"
+                  onPress={this.Exported}
+                />
+            </View>
