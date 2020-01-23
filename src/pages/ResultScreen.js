@@ -53,7 +53,7 @@ export default class ResultScreen extends React.Component {
                 </View>
                 <TouchableOpacity
                     style = {styles.button}
-                    onPress={() => Alert.alert("Exported dude")}
+                    onPress={() => this.Exported()}
                 >
                     <Text style = {styles.buttonText}>Export to PDF</Text>
                 </TouchableOpacity>
