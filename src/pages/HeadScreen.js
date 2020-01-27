@@ -8,16 +8,16 @@ export default class WholeBodyScreen extends React.Component {
         this.state = {width: Dimensions.get('window').width, height: Dimensions.get('window').height}
     }
 
-    static navigationOptions = {
-      headerShown: false
-      };
-
     // static navigationOptions = {
-    //     title: 'Body',
-    //     headerStyle: {
-    //         backgroundColor: '#bde0eb',
-    //     },
-    // };
+    //   headerShown: false
+    //   };
+
+    static navigationOptions = {
+        title: 'Head',
+        headerStyle: {
+            backgroundColor: '#bde0eb',
+        },
+    };
 
     render() {
         return (

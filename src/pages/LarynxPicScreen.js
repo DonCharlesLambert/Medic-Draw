@@ -5,7 +5,7 @@ import RadiusBtn from '../CustomedComponent/RadiusBtn';
 
 export default class LarynxPicScreen extends React.Component {
     static navigationOptions = {
-        title: 'Body',
+        title: 'Larynx',
         headerStyle: {
           backgroundColor: '#bde0eb',
       },

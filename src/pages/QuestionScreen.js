@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {StyleSheet, Alert, View, Button, Text, TextInput, TouchableOpacity} from 'react-native';
 import CheckBtn from '../CustomedComponent/CheckBtn';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 export default class drawingScreen extends React.Component {
@@ -11,7 +12,7 @@ export default class drawingScreen extends React.Component {
 
     render() {
         return (
-            <View style={{alignItems: 'center', justifyContent: 'space-around', height: 450}}>
+          <KeyboardAwareScrollView keyboardShouldPersistTaps="never" contentContainerStyle={styles.container}>
               <View style={styles.theBox}>
                   <Text style={{fontWeight: 'bold', marginBottom: 10, color: '#f2f3f4'}}>Size of the tumour</Text>
                   <CheckBtn
@@ -53,7 +54,7 @@ export default class drawingScreen extends React.Component {
               >
                 <Text style = {styles.buttonText}>Submit</Text>
               </TouchableOpacity>
-            </View>
+              </KeyboardAwareScrollView>
           );
     }
 }
