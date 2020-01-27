@@ -36,11 +36,11 @@ export default class ResultScreen extends React.Component {
 
                 <View>
                     <Text style= {styles.textBold}>Patient Data:</Text>
-                        <Text>The patient, {this.state.name} is {this.state.age} years old and has been
+                        <Text style={styles.text}>The patient, {this.state.name} is {this.state.age} years old and has been
                         diagnosed with cancer in the Larynx</Text>
 
                     <Text style= {[styles.textBold, {marginTop: '5%'}]}>Qualifying Conditions:</Text>
-                        <Text>Tumour more than 4cm in or extension to lingual surface of epiglottis.
+                        <Text style={styles.text}>Tumour more than 4cm in or extension to lingual surface of epiglottis.
                         The tumour is also on the upper side of the Larynx.</Text>
 
                     <Text style= {styles.textBold}>According to {this.state.UICCVersion},
@@ -88,7 +88,9 @@ const styles = StyleSheet.create({
     marginTop: '1%',
     marginBottom: '2%',
     fontWeight: 'bold',
-    fontSize: 14
+    fontSize: 14,
+    left: '5%',
+    marginEnd: '5%',
   },
   image: {
     alignItems: 'center',

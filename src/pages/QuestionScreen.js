@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#add8e6',
         marginTop: 50,
         borderRadius: 20,
-        padding: 15
+        padding: 15,
+        left: "13%"
     },
     theBox: {
         backgroundColor: '#add8e6',
@@ -78,7 +79,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         width: '70%',
         marginTop: 50,
-        marginBottom: 50
+        marginBottom: 50,
+        left: "13%"
     },
     button: {
         width: '50%',
@@ -86,5 +88,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 50,
         borderRadius: 10,
+        left: "25%"
     }
   });
