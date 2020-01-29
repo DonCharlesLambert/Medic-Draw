@@ -7,7 +7,7 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 
 import {Platform} from 'react-native';
-console.disableYellowBox = true; // 关闭全部黄色警告
+console.disableYellowBox = true; 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import HomeScreen from './src/pages/HomeScreen';

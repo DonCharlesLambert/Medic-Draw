@@ -1,7 +1,7 @@
 const { Connection, Request } = require("tedious");
 var express = require("express");
 var app = express();
-var sql = require("mssql");
+var sql = require("mysql");
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 

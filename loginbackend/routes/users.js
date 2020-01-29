@@ -1,12 +1,14 @@
-var express = require('express');
+const { Connection, Request } = require("tedious");
+var express = require("express");
+var app = express();
 var router = express.Router();
-var mysql = require('mysql');
+var sql = require("mysql");
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
-var connection = mysql.createConnection({
-  // host:'localhost',
-  // user: 'root',
-  // password: 'root',
-  // database: 'users'
+module.exports = router;
+
+const config = {
   authentication: {
     options: {
       userName: "sylvia", // update me
@@ -17,8 +19,17 @@ var connection = mysql.createConnection({
   server: "team-30-medical-drawings.database.windows.net", // update me
   options: {
     database: "medical-drawings", //update me
-    encrypt: true,
+    encrypt: true
   }
+};
+
+const connection = new Connection(config);
+
+// Attempt to connect and execute queries if connection goes through
+connection.on("connect", err => {
+  if (err) {
+    console.error(err.message);
+  } 
 });
 
 router.get('/', function(req, res, next) {
@@ -26,31 +37,56 @@ router.get('/', function(req, res, next) {
   res.send({message: 'get method users'});
 });
 
-router.post('/', function(req, res, next) {
-  console.log('backend');
-  // var username = req.body.username;
-  // var password = req.body.password;
+router.post('/', async function(req, res, next) {
+  console.log('------ backend post ------');
 
+  res.send({message : 'backend' })
+  var name = req.body.name;
+  var DOB = req.body.DOB;
+  var HospitalNo = req.body.HospitalNo;
+  var Symptoms = req.body.Symptoms;
+    
+  console.log("name = ",name)
+  let result = await queryDatabase( "INSERT userInformation (name, DOB, HospitalNo, Symptoms) VALUES ('" + name + "', '" + DOB + "', '" + HospitalNo + "', '" + Symptoms + "' )", 
+  (err, row, field) => {
+    console.log('connected');
+    // if (err) {
+    //   console.log(err);
+    //   res.send ({'success': false, 'message': 'could not connect to database' });
+    // }
 
-  // connection.query(
-  //   "SHOW TABLES", 
-  //   // "INSERT INTO users (username, password) values (sylvia test)",
-  //   function(err, row, field) {
-  //     console.log('connected');
-  //     if (err) {
-  //       console.log(err);
-  //       res.send ({'success': false, 'message': 'could not connect to database' });
-  //     }
-
-  //     // if (row.length > 0) {
-  //     //   console.log('found');
-  //     //   res.send ({'success': true, 'user': row[0].username});
-  //     // }
-  //     else {
-  //       console.log('not found');
-  //       res.send ({'s uccess': false, 'message': 'user not found'});
-  //     }
-  //   });
+    // if (row.length > 0) {
+    //   console.log('found');
+    //   res.send ({'success': true, 'user': row[0].username});
+    // }
+    // else {
+    //   console.log('not found');
+    //   res.send ({'success': false, 'message': 'user not found'});
+    // }
+  })
 });
 
-module.exports = router;
+function queryDatabase(query) {
+  let myFirstPromise = new Promise((resolve, reject) => {
+    console.log("Reading rows from the Table...");
+
+    const request = new Request(query, (err, rowCount) => {
+        if (err) {
+          console.error(err.message);
+          reject(err)
+        } else {
+          console.log('Inserted successfully');
+        }
+      }
+    );
+
+    // request.on("row", columns => {
+    //   columns.forEach(column => {
+    //     console.log("%s\t%s", column.metadata.colName, column.value);
+    //     resolve(column.value)
+    //   });
+    // });
+
+    connection.execSql(request);
+  });
+}

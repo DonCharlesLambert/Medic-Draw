@@ -20,6 +20,7 @@ export default class AnotherScreen extends React.Component {
         name:'',
         DOB:'',
         HospitalNo:'',
+        Symptoms: '',
     }
   }
 
@@ -51,6 +52,10 @@ export default class AnotherScreen extends React.Component {
     };
 
     submit = () => {
+      this.props.navigation.navigate('WholeBody');
+    };
+
+    backendTest = () => {
       // comment for test convenience
       // if (this.state.name === '') {
       //   Alert.alert('Patient name cannot be empty!');
@@ -67,10 +72,6 @@ export default class AnotherScreen extends React.Component {
       //   return;
       // }
 
-      this.props.navigation.navigate('WholeBody');
-    };
-
-    backendTest = () => {
       fetch('http://127.0.0.1:3000/users', {
         method: 'POST',
         headers: {
@@ -81,14 +82,16 @@ export default class AnotherScreen extends React.Component {
           name: this.state.name,
           DOB: this.state.DOB,
           HospitalNo: this.state.HospitalNo,
+          Symptoms: this.state.Symptoms,
         })
       })
       .then((response) => response.json())
       .then ((res) => {
-        if (res.success === true) {
-          AsyncStorage.setItem('user',res.user);
-          this.props.negivation.navigate('wholeBody');
-        }
+        // alert(res.message),
+        // if (res.success === true) {
+          // AsyncStorage.setItem('user',res.user);
+          this.props.navigation.navigate('WholeBody');
+        // }
       })
 
     }
@@ -131,11 +134,12 @@ export default class AnotherScreen extends React.Component {
               multiline={true}
               placeholder="Symptoms"
               clearButtonMode="always"
+              onChangeText={(Symptoms)=>this.setState({Symptoms})}
               />
 
             <TouchableOpacity
                 style = {styles.button}
-                onPress={this.submit.bind(this)}
+                onPress={this.backendTest.bind(this)}
             >
               <Text style = {styles.buttonText}>Submit</Text>
             </TouchableOpacity>
