@@ -30,6 +30,97 @@ export default class WholeBodyScreen extends React.Component {
                 }}
                 onPress={() => this.props.navigation.navigate('Head')}
              />
+
+              {/* <RadiusBtn
+                btnName='Shoulder'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: '25%',
+                    left: '120%',
+                    height: 70,
+                    width: 70,
+                    borderRadius: 40,
+                }}
+                onPress={() => this.props.navigation.navigate('Head')}
+             />
+
+              <RadiusBtn
+                btnName='Arm'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: '45%',
+                    left: '170%',
+                    height: 60,
+                    width: 60,
+                    borderRadius: 40,
+                }}
+                // onPress={() => this.props.navigation.navigate('Head')}
+             />
+
+              <RadiusBtn
+                btnName='Belly'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: '35%',
+                    left: '-10%',
+                    height: 60,
+                    width: 60,
+                    borderRadius: 40,
+                }}
+                // onPress={() => this.props.navigation.navigate('Head')}
+             />
+
+              <RadiusBtn
+                btnName='Hand'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: '40%',
+                    left: '-230%',
+                    height: 60,
+                    width: 60,
+                    borderRadius: 40,
+                }}
+                // onPress={() => this.props.navigation.navigate('Head')}
+             />
+
+              <RadiusBtn
+                btnName='Hip'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: '31%',
+                    left: '-90%',
+                    height: 60,
+                    width: 60,
+                    borderRadius: 40,
+                }}
+                // onPress={() => this.props.navigation.navigate('Head')}
+             />
+
+              <RadiusBtn
+                btnName='Leg'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: '58%',
+                    left: '70%',
+                    height: 60,
+                    width: 60,
+                    borderRadius: 40,
+                }}
+                // onPress={() => this.props.navigation.navigate('Head')}
+             />   
+
+              <RadiusBtn
+                btnName='Foot'
+                textStyle= {{color: '#ffffff'}}
+                btnStyle= {{
+                    top: '75%',
+                    left: '-90%',
+                    height: 60,
+                    width: 60,
+                    borderRadius: 40,
+                }}
+                // onPress={() => this.props.navigation.navigate('Head')}
+             /> */}
           </ImageBackground>
       );
     }

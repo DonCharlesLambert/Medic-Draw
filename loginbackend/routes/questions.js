@@ -32,22 +32,15 @@ connection.on("connect", err => {
   } 
 });
 
-router.get('/', function(req, res, next) {
-  console.log('1234');
-  res.send({message: 'get method users'});
-});
-
 router.post('/', async function(req, res, next) {
-  console.log('------ backend post ------');
+//   console.log('------ backend post ------');
 
   res.send({message : 'backend' })
-  var name = req.body.name;
-  var DOB = req.body.DOB;
-  var HospitalNo = req.body.HospitalNo;
-  var Symptoms = req.body.Symptoms;
+  var tumourSize = req.body.tumourSize;
+  var VocalChordMobile = req.body.VocalChordMobile;
+  var Comments = req.body.Comments;
     
-  console.log("name = ",name)
-  let result = await queryDatabase( "select * from userInformation",//"INSERT userInformation (name, DOB, HospitalNo, Symptoms) VALUES ('" + name + "', '" + DOB + "', '" + HospitalNo + "', '" + Symptoms + "' )", 
+  let result = await queryDatabase( "INSERT questionnaire (size, vocalChordMobile, comments) VALUES ('" + tumourSize + "', '" + VocalChordMobile + "', '" + Comments + "')", 
   (err, row, field) => {
     console.log('connected');
     // if (err) {

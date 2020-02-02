@@ -10,36 +10,78 @@ export default class drawingScreen extends React.Component {
     title: 'Questions',
     };
 
+    constructor(props){
+      super(props);
+      this.state= {
+          tumourSize: 0,
+          VocalChordMobile: '',
+          Comments: '',
+      }
+    }
+
+    submit = () => {
+      // fetch('http://127.0.0.1:3000/questions', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Accept': 'application/json',
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     tumourSize: this.state.tumourSize,
+      //     VocalChordMobile: this.state.VocalChordMobile,
+      //     Comments: this.state.Comments,
+      //   })
+      // })
+      // .then((response) => response.json())
+      // .then ((res) => {
+      //   alert(res.message),
+        // if (res.success === true) {
+          // AsyncStorage.setItem('user',res.user);
+          this.props.navigation.navigate('Result');
+        // }
+      // })
+    }
+
     render() {
         return (
           <KeyboardAwareScrollView keyboardShouldPersistTaps="never" contentContainerStyle={styles.container}>
               <View style={styles.theBox}>
-                  <Text style={{fontWeight: 'bold', marginBottom: 10, color: '#f2f3f4'}}>Size of the tumour</Text>
-                  <CheckBtn
+                  <Text style={{fontWeight: 'bold', marginTop: 10, fontSize: 18}}>Size of the tumour (cm): </Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Size of the tumour (cm)"
+                    autoCorrect={false}
+                    clearButtonMode="always"
+                    onChangeText={(tumourSize)=>this.setState({tumourSize})}
+                  />
+                  {/* <CheckBtn
                       label='1 - 2cm'
-                      onCheckChange={() => console.log('Tumour size is 1-2cm')}
+                      onCheckChange={(size)=>this.setState({size})}
                   />
                   <CheckBtn
                       label='3 - 4cm'
                       onCheckChange={() => console.log('Tumour size is 3-4cm')}
-                  />
+                  /> */}
               </View>
 
               <View style={styles.theBox}>
-                  <Text style={{fontWeight: 'bold', marginBottom: 10, color: '#f2f3f4'}}>Is vocal chord mobile?</Text>
+                  <Text style={{fontWeight: 'bold', marginBottom: 10, marginTop: 10, fontSize: 18}}>Is vocal chord mobile?</Text>
                   <CheckBtn
                       label='Yes'
-                      onCheckChange={() => console.log('Vocal Chord is mobile')}
+                      onCheckChange={(VocalChordMobile) => VocalChordMobile === 1}
                   />
                   <CheckBtn
                       label='No'
-                      onCheckChange={() => console.log('Vocal Chord is not mobile')}
+                      onCheckChange={(VocalChordMobile) => VocalChordMobile === 0}
                   />
               </View>
 
               <TextInput
                  style={styles.multiLine}
                  placeholder="Comments"
+                 clearButtonMode="always"
+                 multiline={true}
+                 onChangeText={(Comments)=>this.setState({Comments})}
                  multiline={true}/>
               <TouchableOpacity
                 style = {styles.button}
@@ -50,7 +92,7 @@ export default class drawingScreen extends React.Component {
 
               <TouchableOpacity
                 style = {styles.button}
-                onPress={() => this.props.navigation.navigate('Result')}
+                onPress={this.submit.bind(this)}
               >
                 <Text style = {styles.buttonText}>Submit</Text>
               </TouchableOpacity>
@@ -62,6 +104,7 @@ export default class drawingScreen extends React.Component {
 const styles = StyleSheet.create({
     input: {
       height: 80,
+      width: '70%',
       borderColor: 'gray',
     },
     multiLine: {
@@ -78,8 +121,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 20,
         width: '70%',
+        height: '20%',
         marginTop: 50,
-        marginBottom: 50,
+        marginBottom: 30,
         left: "13%"
     },
     button: {

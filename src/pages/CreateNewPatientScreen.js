@@ -9,7 +9,7 @@ export default class AnotherScreen extends React.Component {
   static navigationOptions = {
     title: 'Create New Patient',
     headerStyle: {
-      backgroundColor: '#bde0eb',
+      backgroundColor: '#bde0eb', 
     },
   };
 
@@ -139,7 +139,7 @@ export default class AnotherScreen extends React.Component {
 
             <TouchableOpacity
                 style = {styles.button}
-                onPress={this.backendTest.bind(this)}
+                onPress={this.submit.bind(this)}
             >
               <Text style = {styles.buttonText}>Submit</Text>
             </TouchableOpacity>
