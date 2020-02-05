@@ -76,13 +76,6 @@ function queryDatabase(query) {
       }
     );
 
-    // request.on("row", columns => {
-    //   columns.forEach(column => {
-    //     console.log("%s\t%s", column.metadata.colName, column.value);
-    //     resolve(column.value)
-    //   });
-    // });
-
     connection.execSql(request);
   });
 }

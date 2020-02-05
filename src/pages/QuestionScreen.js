@@ -16,33 +16,45 @@ export default class drawingScreen extends React.Component {
           tumourSize: 0,
           VocalChordMobile: '',
           Comments: '',
+          HospitalNo: '',
       }
     }
 
     submit = () => {
-      // fetch('http://127.0.0.1:3000/questions', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     tumourSize: this.state.tumourSize,
-      //     VocalChordMobile: this.state.VocalChordMobile,
-      //     Comments: this.state.Comments,
-      //   })
-      // })
-      // .then((response) => response.json())
-      // .then ((res) => {
+      fetch('http://127.0.0.1:3000/questions', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tumourSize: this.state.tumourSize,
+          VocalChordMobile: this.state.VocalChordMobile,
+          Comments: this.state.Comments,
+          HospitalNo: this.state.HospitalNo,
+        })
+      })
+      .then((response) => response.json())
+      .then ((res) => {
       //   alert(res.message),
         // if (res.success === true) {
           // AsyncStorage.setItem('user',res.user);
           this.props.navigation.navigate('Result');
         // }
-      // })
+      })
+    }
+
+    componentDidMount() {
+      const { navigation } = this.props;  
+      const HospitalNo = navigation.getParam('HospitalNo', 'NO-User');  
+      console.log("question page: ", HospitalNo);
+      this.setState({
+        HospitalNo: HospitalNo
+      })
     }
 
     render() {
+        
         return (
           <KeyboardAwareScrollView keyboardShouldPersistTaps="never" contentContainerStyle={styles.container}>
               <View style={styles.theBox}>

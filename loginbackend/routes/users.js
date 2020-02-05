@@ -47,7 +47,7 @@ router.post('/', async function(req, res, next) {
   var Symptoms = req.body.Symptoms;
     
   console.log("name = ",name)
-  let result = await queryDatabase( "select * from userInformation",//"INSERT userInformation (name, DOB, HospitalNo, Symptoms) VALUES ('" + name + "', '" + DOB + "', '" + HospitalNo + "', '" + Symptoms + "' )", 
+  let result = await queryDatabase("INSERT userInformation (Name, DOB, HospitalNo, Symptoms) VALUES ('" + name + "', '" + DOB + "', '" + HospitalNo + "', '" + Symptoms + "' )", 
   (err, row, field) => {
     console.log('connected');
     // if (err) {

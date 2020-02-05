@@ -32,6 +32,9 @@ export default class drawingScreen extends React.Component {
     }
 
     render() {
+        const { navigation } = this.props;  
+        const HospitalNo = navigation.getParam('HospitalNo', 'NO-User');  
+        console.log("drawing page: ",HospitalNo);
         return (
             <View style={{alignItems: 'center', justifyContent: 'center',}}>
                 <View style={{flexDirection:'row', marginTop: 10, height: '6%'}}>
@@ -81,7 +84,8 @@ export default class drawingScreen extends React.Component {
                 </View>
 
                 <View style = {{height: '6%'}}>
-                    <Button title="Finish" onPress={() => this.props.navigation.navigate('Question')}/>
+                    <Button title="Finish" onPress={() => this.props.navigation.navigate('Question', {
+                        HospitalNo: HospitalNo})}/>
                 </View>
             </View>
         );

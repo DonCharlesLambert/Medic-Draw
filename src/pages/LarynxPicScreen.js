@@ -12,17 +12,22 @@ export default class LarynxPicScreen extends React.Component {
         };
         
     render() {
+      const { navigation } = this.props;  
+      const HospitalNo = navigation.getParam('HospitalNo', 'NO-User');  
+      console.log("larynx page: ",HospitalNo);
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around', height: 300}}>
           <Image source={require('../../img/larynx.png')} style={styles.imgStyle}></Image>
           <Button
             title="Axial"
-            onPress={() => this.props.navigation.navigate('Drawing')}
+            onPress={() => this.props.navigation.navigate('Drawing',  {
+              HospitalNo: HospitalNo})}
           />
           <Image source={require('../../img/larynx.png')} style={styles.imgStyle}></Image> 
           <Button
             title="Sagital"
-            onPress={() => this.props.navigation.navigate('Drawing')}
+            onPress={() => this.props.navigation.navigate('Drawing',  {
+              HospitalNo: HospitalNo})}
           />
         </View>
 

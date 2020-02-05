@@ -20,6 +20,9 @@ export default class WholeBodyScreen extends React.Component {
     };
 
     render() {
+      const { navigation } = this.props;  
+      const HospitalNo = navigation.getParam('HospitalNo', 'NO-User');  
+      console.log("head page: ",HospitalNo);
         return (
             <ImageBackground style = {styles.background} source={require('../../img/head.png')}>
                 <RadiusBtn
@@ -32,7 +35,8 @@ export default class WholeBodyScreen extends React.Component {
                         width: 60,
                         borderRadius: 30,
                     }}
-                    onPress={() => this.props.navigation.navigate('LarynxPic')}
+                    onPress={() => this.props.navigation.navigate('LarynxPic', {
+                        HospitalNo: HospitalNo})}
                 />
             </ImageBackground>
         );

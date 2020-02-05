@@ -43,7 +43,7 @@ export default class AnotherScreen extends React.Component {
             quality: 1
         });
 
-        console.log(result);
+        // console.log(result);
 
         if (!result.cancelled) {
             this.setState({ image: result.uri });
@@ -52,7 +52,10 @@ export default class AnotherScreen extends React.Component {
     };
 
     submit = () => {
-      this.props.navigation.navigate('WholeBody');
+      this.props.navigation.navigate('WholeBody', {
+        HospitalNo: this.state.HospitalNo
+      }),
+      console.log("HospitcalNo: ", this.state.HospitalNo);
     };
 
     backendTest = () => {
@@ -90,7 +93,10 @@ export default class AnotherScreen extends React.Component {
         // alert(res.message),
         // if (res.success === true) {
           // AsyncStorage.setItem('user',res.user);
-          this.props.navigation.navigate('WholeBody');
+          this.props.navigation.navigate('WholeBody',{
+            HospitalNo: this.state.HospitalNo
+          }),
+          console.log("HospitcalNo: ", this.state.HospitalNo);
         // }
       })
 
@@ -139,7 +145,7 @@ export default class AnotherScreen extends React.Component {
 
             <TouchableOpacity
                 style = {styles.button}
-                onPress={this.submit.bind(this)}
+                onPress={this.backendTest.bind(this)}
             >
               <Text style = {styles.buttonText}>Submit</Text>
             </TouchableOpacity>

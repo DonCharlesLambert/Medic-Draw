@@ -6,7 +6,7 @@ import {
     SectionList,
     StyleSheet,
     Dimensions,
-    Component
+    ActivityIndicator,
 } from 'react-native';
 
 
@@ -22,13 +22,15 @@ export default class ListOfPatientScreen extends React.Component {
 
     constructor(props) {
         super(props);
-            this.state = {
-            wordList: [{ "title": "C", "data": [{ "Name": "complication", "Id": 3614 }] }, { "title": "D", "data": [{ "Name": "dominate", "Id": 5378 }] }, { "title": "E", "data": [{ "Name": "educate", "Id": 5417 }] }, { "title": "I", "data": [{ "Name": "ignore", "Id": 5686 }, { "Name": "intake", "Id": 4092 }, { "Name": "interaction", "Id": 4103 }] }, { "title": "M", "data": [{ "Name": "mutual", "Id": 1004 }] }, { "title": "N", "data": [{ "Name": "natural habitat", "Id": 4272 }, { "Name": "negatively", "Id": 4288 }, { "Name": "nutrition", "Id": 2648 }] }, { "title": "O", "data": [{ "Name": "obesity", "Id": 2652 }, { "Name": "over-consumption", "Id": 1074 }] }, { "title": "P", "data": [{ "Name": "professional", "Id": 6066 }, { "Name": "project", "Id": 6073 }] }, { "title": "R", "data": [{ "Name": "reveal", "Id": 4480 }] }, { "title": "S", "data": [{ "Name": "submit", "Id": 6334 }] }, { "title": "U", "data": [{ "Name": "urban", "Id": 1588 }] }, { "title": "W", "data": [{ "Name": "well-preserved", "Id": 4843 }, { "Name": "widespread", "Id": 4883 }] }],
+        this.state = {
+            isLoading: true,
+            dataSource: null,
+            wordList: [{ "title": "C", "data": [{ "Name": "Cindy", "Id": 3614 }] }, { "title": "D", "data": [{ "Name": "David", "Id": 5378 }] }, { "title": "E", "data": [{ "Name": "Evan", "Id": 5417 }] }, { "title": "I", "data": [{ "Name": "Irena", "Id": 5686 }, { "Name": "Idla", "Id": 4092 }, { "Name": "Idla", "Id": 4103 }] }, { "title": "M", "data": [{ "Name": "Mike", "Id": 1004 }] }, { "title": "N", "data": [{ "Name": "Neil", "Id": 4272 }, { "Name": "Nathan", "Id": 4288 }, { "Name": "Nicholas", "Id": 2648 }] }, { "title": "O", "data": [{ "Name": "Oak", "Id": 2652 }, { "Name": "Oakland", "Id": 1074 }] }, { "title": "P", "data": [{ "Name": "Peyton", "Id": 6066 }, { "Name": "Preston", "Id": 6073 }] }, { "title": "R", "data": [{ "Name": "Robert", "Id": 4480 }] }, { "title": "S", "data": [{ "Name": "Simon", "Id": 6334 }] }, { "title": "U", "data": [{ "Name": "Ulises", "Id": 1588 }] }, { "title": "W", "data": [{ "Name": "Weston", "Id": 4843 }, { "Name": "Warrn", "Id": 4883 }] }],
         }
     }
 
     _getData() {
-        
+        // obtain data from backend server,并且格式化成 title,data的格式 
         $http.post('http://127.0.0.1:3000/users').then((data) => {
             if (data.Rstatus) {
                 let list = data.Rdata.map(item => {
@@ -177,10 +179,43 @@ export default class ListOfPatientScreen extends React.Component {
 
     componentDidMount() {
         this._setItemLayout(this.state.wordList);
+
+        // return fetch('https://facebook.github.io/react-native/movies.json')
+        // .then((response) => response.json())
+        // .then ((res) => {
+        //     this.setState({
+        //         isLoading: false,
+        //         dataSource: res.movies,
+        //     })
+        // })
+
+        // .catch((error) => {
+        //     console.log(error);
+        // });
     }
 
     render() {
+        // if (this.state.isLoading) {
+        //     return (
+        //         <View style={styles.container}>
+        //             <ActivityIndicator />
+        //         </View>
+        //     )}
+        // else {
+        //     let movies = this.state.dataSource.map((val, key) => {
+        //         return <View key={key}>
+        //     <Text>{val.title}</Text>
+        //         </View>
+        //     });
+
+        //     return (
+        //         <View style={styles.container}>
+        //             {movies}
+        //         </View>
+        //     )
+        // }
         return (
+            // null
                 <View>
                     {
                         this._wordListView()

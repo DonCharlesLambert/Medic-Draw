@@ -4,9 +4,17 @@ import RadiusBtn from '../CustomedComponent/RadiusBtn';
 
 export default class WholeBodyScreen extends React.Component {
     constructor(props) {
-        super();
+        super(props);
+        // this.state= {
+        //   HospitalNo: ''
+        // }
+        // const { navigation } = this.props;  
+        // var params = navigation.getParam('HospitalNo', '');  
+
         this.state = {width: Dimensions.get('window').width, height: Dimensions.get('window').height}
+        // console.log(params)
     }
+    
 
     static navigationOptions = {
         title: 'Body',
@@ -16,6 +24,9 @@ export default class WholeBodyScreen extends React.Component {
         };
 
     render() {
+      const { navigation } = this.props;  
+      const HospitalNo = navigation.getParam('HospitalNo', 'NO-User');  
+      console.log("whole body page: ",HospitalNo);
       return (
           <ImageBackground style = {styles.background} source={require('../../img/body.png')}>
              <RadiusBtn
@@ -28,7 +39,9 @@ export default class WholeBodyScreen extends React.Component {
                     width: 60,
                     borderRadius: 30,
                 }}
-                onPress={() => this.props.navigation.navigate('Head')}
+                onPress={() => this.props.navigation.navigate('Head', {
+                  HospitalNo: HospitalNo}
+                  )}
              />
 
               {/* <RadiusBtn
