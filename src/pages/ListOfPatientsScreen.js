@@ -7,7 +7,11 @@ import {
     StyleSheet,
     Dimensions,
     ActivityIndicator,
+    Alert,
+
 } from 'react-native';
+import { render } from 'react-dom';
+import { FlatList } from 'react-native-gesture-handler';
 
 
 const ITEM_HEIGHT = 44; 
@@ -18,6 +22,9 @@ export default class ListOfPatientScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Patient Lists',
+    headerStyle: {
+      backgroundColor: '#bde0eb', 
+    },
     };
 
     constructor(props) {
@@ -25,33 +32,55 @@ export default class ListOfPatientScreen extends React.Component {
         this.state = {
             isLoading: true,
             dataSource: null,
-            wordList: [{ "title": "C", "data": [{ "Name": "Cindy", "Id": 3614 }] }, { "title": "D", "data": [{ "Name": "David", "Id": 5378 }] }, { "title": "E", "data": [{ "Name": "Evan", "Id": 5417 }] }, { "title": "I", "data": [{ "Name": "Irena", "Id": 5686 }, { "Name": "Idla", "Id": 4092 }, { "Name": "Idla", "Id": 4103 }] }, { "title": "M", "data": [{ "Name": "Mike", "Id": 1004 }] }, { "title": "N", "data": [{ "Name": "Neil", "Id": 4272 }, { "Name": "Nathan", "Id": 4288 }, { "Name": "Nicholas", "Id": 2648 }] }, { "title": "O", "data": [{ "Name": "Oak", "Id": 2652 }, { "Name": "Oakland", "Id": 1074 }] }, { "title": "P", "data": [{ "Name": "Peyton", "Id": 6066 }, { "Name": "Preston", "Id": 6073 }] }, { "title": "R", "data": [{ "Name": "Robert", "Id": 4480 }] }, { "title": "S", "data": [{ "Name": "Simon", "Id": 6334 }] }, { "title": "U", "data": [{ "Name": "Ulises", "Id": 1588 }] }, { "title": "W", "data": [{ "Name": "Weston", "Id": 4843 }, { "Name": "Warrn", "Id": 4883 }] }],
+            patientList: [{ "title": "C", "data": [{ "Name": "Cindy", "Id": 3614 }] }, { "title": "D", "data": [{ "Name": "David", "Id": 5378 }] }, { "title": "E", "data": [{ "Name": "Evan", "Id": 5417 }] }, { "title": "I", "data": [{ "Name": "Irena", "Id": 5686 }, { "Name": "Idla", "Id": 4092 }, { "Name": "Idla", "Id": 4103 }] }, { "title": "M", "data": [{ "Name": "Mike", "Id": 1004 }] }, { "title": "N", "data": [{ "Name": "Neil", "Id": 4272 }, { "Name": "Nathan", "Id": 4288 }, { "Name": "Nicholas", "Id": 2648 }] }, { "title": "O", "data": [{ "Name": "Oak", "Id": 2652 }, { "Name": "Oakland", "Id": 1074 }] }, { "title": "P", "data": [{ "Name": "Peyton", "Id": 6066 }, { "Name": "Preston", "Id": 6073 }] }, { "title": "R", "data": [{ "Name": "Robert", "Id": 4480 }] }, { "title": "S", "data": [{ "Name": "Simon", "Id": 6334 }] }, { "title": "U", "data": [{ "Name": "Ulises", "Id": 1588 }] }, { "title": "W", "data": [{ "Name": "Weston", "Id": 4843 }, { "Name": "Warrn", "Id": 4883 }] }],
+            // patientList:[{name: "bob"}, {name: "tim"}]
         }
     }
 
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <FlatList 
+//                 patientList={[{name: "bob"}, {name: "tim"}]}
+//                 // patientList={this.state.patientList}
+//                 keyExtractor={(x,i)=>i}
+//                 renderItem={({ item }) =>
+//             <Text>
+//                 {item.name}
+//             </Text>}
+//             />
+//             </View>
+//         );
+//     }    
+// }
+
+
+
+
     _getData() {
+        console.log("hi")
         // obtain data from backend server,并且格式化成 title,data的格式 
-        $http.post('http://127.0.0.1:3000/users').then((data) => {
-            if (data.Rstatus) {
-                let list = data.Rdata.map(item => {
-                    return {
-                        title: item.ClassifyName,
-                        data: item.List.map(w => {
-                            return {
-                                Name: w.WordName,
-                                Id: w.WordId
-                            }
-                        }),
-                    };
-                });
-                console.log(JSON.stringify(list))
+        // $http.post('http://127.0.0.1:3000/patientList').then((data) => {
+        //     if (data.Rstatus) {
+        //         let list = data.Rdata.map(item => {
+        //             return {
+        //                 title: item.ClassifyName,
+        //                 data: item.List.map(w => {
+        //                     return {
+        //                         Name: w.WordName,
+        //                         Id: w.WordId
+        //                     }
+        //                 }),
+        //             };
+        //         });
+        //         console.log(JSON.stringify(list))
                 
-                this.setState({
-                    wordList: list,
-                    // isLoading: false
-                })
-            }
-            });
+        //         this.setState({
+        //             wordList: list,
+        //             // isLoading: false
+        //         })
+        //     }
+        //     });
 
         // 请求后台接口获取单词数据的,并且格式化成 title,data的格式 
         // $http.post($urls.studentApi.Study_Word_GetWordListJson).then((data) => {
@@ -132,23 +161,24 @@ export default class ListOfPatientScreen extends React.Component {
         return (
           // click to detail 
             <TouchableOpacity style={styles.sectionItem} onPress={() => {
-                this.props.navigation.navigate('patientDetail'
-                , {
-                    WordName: item.Name,
-                    IsExistWordBook: true,
-                    callback: () => {
-                        this._getData()
-                    }
-                }
+                this.props.navigation.navigate('PatientDetail',
+                // , {
+                //     WordName: item.Name,
+                //     IsExistWordBook: true,
+                //     callback: () => {
+                //         this._getData()
+                //     }
+                // }
                 )
-            }}>
+            }, this._getData
+        }>
                 <Text>{item.Name}</Text>
             </TouchableOpacity>
         )
     }
 
     _wordListView() {
-            if (this.state.wordList && this.state.wordList.length > 0) {
+            if (this.state.patientList && this.state.patientList.length > 0) {
                 return (
                     <View style={styles.sectionContainer}>
                         <SectionList
@@ -156,7 +186,7 @@ export default class ListOfPatientScreen extends React.Component {
                             showsVerticalScrollIndicator={false}
                             // getItemLayout={this._getItemLayout.bind(this)}
                             keyExtractor={this._keyExtractor}
-                            sections={this.state.wordList}
+                            sections={this.state.patientList}
                             renderItem={this._renderItem}
                             renderSectionHeader={({ section }) => <View style={styles.sectionHeader}><Text style={styles.sectionHeaderTxt}>{section.title}</Text></View>}
                         />
@@ -164,7 +194,7 @@ export default class ListOfPatientScreen extends React.Component {
                         <View style={styles.titleListWrapper}>
                             <View style={styles.sectionTitleList}>
                                 {
-                                    this.state.wordList.map((v, k) => {
+                                    this.state.patientList.map((v, k) => {
                                         return (
                                             <Text style={styles.titleText} key={k} onPress={() => { this._onSectionselect(k) }}>{v.title}</Text>
                                         )
@@ -178,7 +208,7 @@ export default class ListOfPatientScreen extends React.Component {
     }
 
     componentDidMount() {
-        this._setItemLayout(this.state.wordList);
+        this._setItemLayout(this.state.patientList);
 
         // return fetch('https://facebook.github.io/react-native/movies.json')
         // .then((response) => response.json())
@@ -230,6 +260,7 @@ const styles = StyleSheet.create({
       flex: 1,
       paddingTop: 22,
   },
+
   sectionContainer: {
       marginBottom: 50
   },
