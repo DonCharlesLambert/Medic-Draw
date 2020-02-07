@@ -9,6 +9,8 @@ var mysql = require('mysql');
 var indexRouter = require('./routes/index');
 var users = require('./routes/users');
 var questions = require('./routes/questions');
+var patientList = require('./routes/patientList');
+
 
 
 var app = express();
@@ -26,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', users);
 app.use('/questions', questions);
+app.use('/patientList', patientList);
+
 
 
 // catch 404 and forward to error handler

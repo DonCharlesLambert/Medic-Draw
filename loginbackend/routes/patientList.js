@@ -42,7 +42,7 @@ router.post('/', async function(req, res, next) {
   var HospitalNo =  req.body.HospitalNo;
   console.log(HospitalNo);
     
-  let result = await queryDatabase( "INSERT questionnaire (HospitalNo, size, vocalChordMobile, comments) VALUES ('" + HospitalNo + "', '" + tumourSize + "', '" + VocalChordMobile + "', '" + Comments + "')", 
+  let result = await queryDatabase( "select * from questionnaire",//"INSERT questionnaire (HospitalNo, size, vocalChordMobile, comments) VALUES ('" + HospitalNo + "', '" + tumourSize + "', '" + VocalChordMobile + "', '" + Comments + "')", 
   (err, row, field) => {
     console.log('connected');    
 
