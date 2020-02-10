@@ -36,51 +36,31 @@ export default class ListOfPatientScreen extends React.Component {
             // patientList:[{name: "bob"}, {name: "tim"}]
         }
     }
-
-//     render() {
-//         return (
-//             <View style={styles.container}>
-//                 <FlatList 
-//                 patientList={[{name: "bob"}, {name: "tim"}]}
-//                 // patientList={this.state.patientList}
-//                 keyExtractor={(x,i)=>i}
-//                 renderItem={({ item }) =>
-//             <Text>
-//                 {item.name}
-//             </Text>}
-//             />
-//             </View>
-//         );
-//     }    
-// }
-
-
-
-
+    
     _getData() {
         console.log("hi")
         // obtain data from backend server,并且格式化成 title,data的格式 
-        // $http.post('http://127.0.0.1:3000/patientList').then((data) => {
-        //     if (data.Rstatus) {
-        //         let list = data.Rdata.map(item => {
-        //             return {
-        //                 title: item.ClassifyName,
-        //                 data: item.List.map(w => {
-        //                     return {
-        //                         Name: w.WordName,
-        //                         Id: w.WordId
-        //                     }
-        //                 }),
-        //             };
-        //         });
-        //         console.log(JSON.stringify(list))
+        $http.post('http://127.0.0.1:3000/patientList').then((data) => {
+            if (data.Rstatus) {
+                let list = data.Rdata.map(item => {
+                    return {
+                        title: item.ClassifyName,
+                        data: item.List.map(w => {
+                            return {
+                                Name: w.WordName,
+                                Id: w.WordId
+                            }
+                        }),
+                    };
+                });
+                console.log(JSON.stringify(list))
                 
-        //         this.setState({
-        //             wordList: list,
-        //             // isLoading: false
-        //         })
-        //     }
-        //     });
+                this.setState({
+                    wordList: list,
+                    // isLoading: false
+                })
+            }
+            });
 
         // 请求后台接口获取单词数据的,并且格式化成 title,data的格式 
         // $http.post($urls.studentApi.Study_Word_GetWordListJson).then((data) => {

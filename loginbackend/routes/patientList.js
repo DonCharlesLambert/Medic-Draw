@@ -32,39 +32,32 @@ connection.on("connect", err => {
   } 
 });
 
-router.post('/', async function(req, res, next) {
-//   console.log('------ backend post ------');
+router.get('/', async function(req, res, next) {
+  console.log('------ backend get ------');
+let result = await queryDatabase( "select * from userInformation FOR JSON PATH",
+   (err, row, field) => {
+    if (err) console.log(err);
+    else {
+      console.log(row);
+    }
+  })
+  console.log("result: ", result);
+  res.json({message: result});
 
-  res.send({message : 'backend' })
-  var tumourSize = req.body.tumourSize;
-  var VocalChordMobile = req.body.VocalChordMobile;
-  var Comments = req.body.Comments;
-  var HospitalNo =  req.body.HospitalNo;
-  console.log(HospitalNo);
-    
-  let result = await queryDatabase( "select * from questionnaire",//"INSERT questionnaire (HospitalNo, size, vocalChordMobile, comments) VALUES ('" + HospitalNo + "', '" + tumourSize + "', '" + VocalChordMobile + "', '" + Comments + "')", 
+  // res.send({message: 'get method users'});
+});
+
+
+router.post('/', async function(req, res, next) {    
+  let result = await queryDatabase( "select * from userInformation",//"INSERT questionnaire (HospitalNo, size, vocalChordMobile, comments) VALUES ('" + HospitalNo + "', '" + tumourSize + "', '" + VocalChordMobile + "', '" + Comments + "')", 
   (err, row, field) => {
-    console.log('connected');    
-
-    // if (err) {
-    //   console.log(err);
-    //   res.send ({'success': false, 'message': 'could not connect to database' });
-    // }
-
-    // if (row.length > 0) {
-    //   console.log('found');
-    //   res.send ({'success': true, 'user': row[0].username});
-    // }
-    // else {
-    //   console.log('not found');
-    //   res.send ({'success': false, 'message': 'user not found'});
-    // }
+    console.log('connected');
   })
 });
 
-function queryDatabase(query) {
-  let myFirstPromise = new Promise((resolve, reject) => {
-    console.log("Reading rows from the Table...");
+  function queryDatabase(query) {
+  return new Promise((resolve, reject) => {
+    console.log("Reading from the Table...");
 
     const request = new Request(query, (err, rowCount) => {
         if (err) {
@@ -75,7 +68,13 @@ function queryDatabase(query) {
         }
       }
     );
-
+    
+    request.on("row", columns => {
+      columns.forEach(column => {
+        console.log("%s", column.value);
+        resolve(column.value);
+      });
+    });
     connection.execSql(request);
   });
 }

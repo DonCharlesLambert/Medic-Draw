@@ -52,7 +52,7 @@ export default class ProfileScreen extends React.Component {
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
-                          onPress={() => this.props.navigation.navigate('ListOfPatients')}
+                          onPress={() => this.props.navigation.navigate('ListOfPatient2')}
                       >
                           <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>Edit Existing Patients</Text>

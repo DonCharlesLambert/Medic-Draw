@@ -24,6 +24,8 @@ import ResultScreen from './src/pages/ResultScreen';
 import ListOfPatientsScreen from './src/pages/ListOfPatientsScreen';
 import UICCVersionViewScreen from './src/pages/UICCVersionViewScreen';
 import PatientDetailScreen from './src/pages/PatientDetailScreen';
+import ListOfPatientScreen2 from './src/pages/ListOfPatientScreen2';
+
 
 // export const BottomTab = createAppContainer(
 //   createBottomTabNavigator(
@@ -90,6 +92,7 @@ const RootStack = createStackNavigator(
     Question: QuestionScreen,
     Result: ResultScreen,
     ListOfPatients: ListOfPatientsScreen,
+    ListOfPatient2: ListOfPatientScreen2,
     UICCVersionView: UICCVersionViewScreen,
     PatientDetail: PatientDetailScreen
   },
