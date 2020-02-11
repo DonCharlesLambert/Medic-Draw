@@ -26,17 +26,24 @@ export default class ListOfPatientScreen2 extends Component {
       })
       .then((response) => response.json())
       .then ((res) => {
-        alert(res.message);
         // const json = res.json();
-        this.setState({data: res.message});
-        console.log("data:" , this.state.data );
+        const newData = JSON.parse(res.message);
+        this.setState({data: newData});
+        console.log("data == " , this.state.data);
       })
     };
 
     render() {
+        let patients = this.state.data.map((val, key) => {
+            return <View key = {key} style = {styles.item}>
+                <Text>{val.Name} {val.HospitalNo}</Text>
+            </View>
+        })
+
     return (
         <View style={styles.container}>
-            <Text>hi</Text>
+            {patients}
+            {/* <Text>hi</Text>
             <FlatList 
             data={this.state.data}
             keyExtractor={(x,i)=>i}
@@ -44,7 +51,7 @@ export default class ListOfPatientScreen2 extends Component {
             <Text>
                 {item.Name}
             </Text>}
-            />
+            /> */}
         </View>
         );
     }    
@@ -57,5 +64,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         
+    },
+    item: {
+        flex:1,
     }
 })
