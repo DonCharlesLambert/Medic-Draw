@@ -1,13 +1,14 @@
 import React, {Component} from "react";
-import {FlatList, StyleSheet, Text, View, Button, Alert} from "react-native";
+import {FlatList, StyleSheet, Text, View, ActivityIndicator, Alert} from "react-native";
 
 export default class ListOfPatientScreen2 extends Component {
 
     state = {
-        data: [],
+        isLoading: true,
+        data: [{"id":1,"HospitalNo":123456,"Name":"Lily","DOB":"123","Symptoms":"Fever"},{"id":2,"HospitalNo":234567,"Name":"Irene","DOB":"666","Symptoms":"The tonsils are swollen."}],
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.fetchData();
     }
 
@@ -28,12 +29,22 @@ export default class ListOfPatientScreen2 extends Component {
       .then ((res) => {
         // const json = res.json();
         const newData = JSON.parse(res.message);
-        this.setState({data: newData});
+        this.setState({
+            data: newData,
+            isLoading: false,
+        });
         console.log("data == " , this.state.data);
       })
     };
 
     render() {
+        if (this.state.isLoading) {
+            return (
+                <View style={styles.container}>
+                    <ActivityIndicator />
+                </View>
+            )}
+        else {
         let patients = this.state.data.map((val, key) => {
             return <View key = {key} style = {styles.item}>
                 <Text>{val.Name} {val.HospitalNo}</Text>
@@ -43,17 +54,9 @@ export default class ListOfPatientScreen2 extends Component {
     return (
         <View style={styles.container}>
             {patients}
-            {/* <Text>hi</Text>
-            <FlatList 
-            data={this.state.data}
-            keyExtractor={(x,i)=>i}
-            renderItem={({ item }) =>
-            <Text>
-                {item.Name}
-            </Text>}
-            /> */}
         </View>
         );
+    }
     }    
 }
 

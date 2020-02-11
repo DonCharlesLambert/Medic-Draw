@@ -36,9 +36,35 @@ export default class ListOfPatientScreen extends React.Component {
             // patientList:[{name: "bob"}, {name: "tim"}]
         }
     }
+
+    fetchData = async () => {
+        await fetch('http://127.0.0.1:3000/patientList', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+      })
+      .then((response) => response.json())
+      .then ((res) => {
+        let patientsInfor = this.state.patientList.map((val, key) => {
+            return {
+                // title: item.ClassifyName,
+                Name: val.Name,
+                Id: val.HospitalNo
+            }            
+        });
+        const newPatientList = JSON.parse(res.message);
+        this.setState({
+            patientList: newPatientList,
+            isLoading: false
+        });
+        console.log("data == " , this.state.patientList);
+      })
+    };
     
     _getData() {
-        console.log("hi")
+        this.fetchData();
         // obtain data from backend server,并且格式化成 title,data的格式 
         $http.post('http://127.0.0.1:3000/patientList').then((data) => {
             if (data.Rstatus) {
@@ -56,7 +82,7 @@ export default class ListOfPatientScreen extends React.Component {
                 console.log(JSON.stringify(list))
                 
                 this.setState({
-                    wordList: list,
+                    patientList: list,
                     // isLoading: false
                 })
             }
@@ -188,6 +214,7 @@ export default class ListOfPatientScreen extends React.Component {
     }
 
     componentDidMount() {
+        // this.fetchData();
         this._setItemLayout(this.state.patientList);
 
         // return fetch('https://facebook.github.io/react-native/movies.json')
