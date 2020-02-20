@@ -5,7 +5,7 @@ export default class ListOfPatientScreen2 extends Component {
 
     state = {
         isLoading: true,
-        data: [{"id":1,"HospitalNo":123456,"Name":"Lily","DOB":"123","Symptoms":"Fever"},{"id":2,"HospitalNo":234567,"Name":"Irene","DOB":"666","Symptoms":"The tonsils are swollen."}],
+        data: [],
     }
 
     componentDidMount() {
@@ -36,6 +36,18 @@ export default class ListOfPatientScreen2 extends Component {
         });
     };
 
+    ListViewItemSeparator = () => {
+        return (
+          <View
+            style={{
+              height: .5,
+              width: "100%",
+              backgroundColor: "#000",
+            }}
+          />
+        );
+      }
+
     render() {
         if (this.state.isLoading) {
             return (
@@ -47,6 +59,7 @@ export default class ListOfPatientScreen2 extends Component {
         let patients = this.state.data.map((val, key) => {
             return <View key = {key} style = {styles.item}>
                 <Text>{val.Name} {val.HospitalNo}</Text>
+                
             </View>
         })
 

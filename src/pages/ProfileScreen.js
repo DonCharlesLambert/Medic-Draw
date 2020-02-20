@@ -45,7 +45,7 @@ export default class ProfileScreen extends React.Component {
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
-                          onPress={() => this.props.navigation.navigate('UICCVersionView')}
+                          onPress={() => this.props.navigation.navigate('ListOfPatients')}
                       >
                           <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>View UICC Version</Text>
