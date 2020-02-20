@@ -23,34 +23,29 @@ export default class WholeBodyScreen extends React.Component {
     render() {
       return (
        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
-        >
-            <Text style = {styles.buttonText}>HEAD</Text>
-        </TouchableOpacity>  
+          <ModalDropdown
+              style = {styles.button}
+              options={this.state.UICCOptions}
+              defaultValue = {'Change Version: UICC Version 8'}
+              color = {'#bde0eb'}
+              onSelect = {(version) => this.setState({UICCVersion: (String(this.state.UICCOptions[version]))})}
+          />
 
-        <TouchableOpacity
-            style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
-        >
-            <Text style = {styles.buttonText}>UPPER LIMB</Text>
-        </TouchableOpacity>  
-
-        <TouchableOpacity
-            style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
-        >
-            <Text style = {styles.buttonText}>LOWER LIMB</Text>
-        </TouchableOpacity>  
-
-        <TouchableOpacity
-            style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
-        >
-            <Text style = {styles.buttonText}>OTHERS</Text>
-        </TouchableOpacity>  
-
+          <View style={{flexDirection:'column'}}>
+              <Text style={styles.subTitle}>Larynx ({this.state.UICCVersion})</Text>
+              <Text style={styles.text}>T1: Tumour 2cm or less in greatest dimension.</Text>
+              <Text style={styles.text}>T2: Tumour more than 2cm but not more than 4cm.</Text>
+              <Text style={styles.text}>T3: Tumour more than 4cm in or extension to lingual surface or epiglottis.</Text>
+              <Text style={styles.text}>T4: Tumour invades any of the following: larynx, deep/extrinsic muscle or tongue. </Text>
+          </View>
+           
+          <View style = {{justifyContent: 'center', alignItems: 'center'}}>
+              <TouchableOpacity
+              style = {styles.button}
+              onPress={() => this.props.navigation.navigate('Profile')}>
+                  <Text>Back to Profile</Text>
+              </TouchableOpacity>
+          </View>
        </View>
       );
     }
@@ -90,16 +85,14 @@ const styles = StyleSheet.create({
     },
 
     button: {
-      width: 300,
-      height: 50,
-      backgroundColor: '#cee8f0',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-      margin: 5,
-      marginTop: 40,
-      borderRadius: 15,
-  },
+        width: '50%',
+        backgroundColor: '#bde0eb',
+        alignItems: 'center',
+        justifyContent: "center",
+        margin: 5,
+        marginTop: 20,
+        borderRadius: 10,
+      },
 
       title: {
         width: '100%',

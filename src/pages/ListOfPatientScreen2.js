@@ -13,12 +13,7 @@ export default class ListOfPatientScreen2 extends Component {
     }
 
     fetchData = async () => {
-        // const response = await fetch("http://127.0.0.1:3000/patientList");  // https://randomuser.me/api?results=100
-        // const json = await response.json();
-        // this.setState({data: json.results});
-        // console.log("hi",response.message);
-
-        await fetch('http://127.0.0.1:3000/patientList', {
+        await fetch('http://51.132.14.14/patientList', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -27,7 +22,6 @@ export default class ListOfPatientScreen2 extends Component {
       })
       .then((response) => response.json())
       .then ((res) => {
-        // const json = res.json();
         const newData = JSON.parse(res.message);
         this.setState({
             data: newData,
@@ -35,6 +29,11 @@ export default class ListOfPatientScreen2 extends Component {
         });
         console.log("data == " , this.state.data);
       })
+      .catch(function(error) {
+        console.log('Problem with fetch operation: ' + error.message);
+         // ADD THIS THROW error
+          throw error;
+        });
     };
 
     render() {
