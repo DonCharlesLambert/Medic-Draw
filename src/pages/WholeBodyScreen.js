@@ -5,16 +5,8 @@ import RadiusBtn from '../CustomedComponent/RadiusBtn';
 export default class WholeBodyScreen extends React.Component {
     constructor(props) {
         super(props);
-        // this.state= {
-        //   HospitalNo: ''
-        // }
-        // const { navigation } = this.props;  
-        // var params = navigation.getParam('HospitalNo', '');  
-
         this.state = {width: Dimensions.get('window').width, height: Dimensions.get('window').height}
-        // console.log(params)
     }
-    
 
     static navigationOptions = {
         title: 'Body',

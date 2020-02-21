@@ -6,7 +6,10 @@ import { Header } from 'react-native-elements';
 export default class ProfileScreen extends React.Component {
 
   static navigationOptions = {
-    headerShown: false
+    title: 'Profile',
+    headerStyle: {
+      backgroundColor: '#bde0eb', 
+    },
     };
 
     Exported = () => {
@@ -16,16 +19,6 @@ export default class ProfileScreen extends React.Component {
     render() {
         return (
             <View>
-              <Header
-                containerStyle={{
-                   backgroundColor: '#bde0eb',
-                   justifyContent: 'space-around',
-                }}
-                //leftComponent={{ icon: 'menu', color: '#fff' }}
-                centerComponent={{ text: 'Profile', style: {fontSize: 20, color: '#fff' } }}
-                //rightComponent={{ icon: 'home', color: '#fff' }}
-                />
-
               <ImageBackground style={styles.container}>
                   <View style={styles.profile}>
                       <Image style = {styles.image} source={require('../../img/profile.png')} resizeMode="contain"/>
@@ -45,14 +38,14 @@ export default class ProfileScreen extends React.Component {
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
-                          onPress={() => this.props.navigation.navigate('ListOfPatients')}
+                          onPress={() => this.props.navigation.navigate('UICCVersionView')}
                       >
                           <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>View UICC Version</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
                           style = {styles.button}
-                          onPress={() => this.props.navigation.navigate('ListOfPatient2')}
+                          onPress={() => this.props.navigation.navigate('ListOfPatients')}
                       >
                           <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
                           <Text style = {styles.buttonText}>Edit Existing Patients</Text>
