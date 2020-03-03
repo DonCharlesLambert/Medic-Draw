@@ -10,6 +10,8 @@ var indexRouter = require('./routes/index');
 var users = require('./routes/users');
 var questions = require('./routes/questions');
 var patientList = require('./routes/patientList');
+var patientDetails = require('./routes/patientDetails');
+var UICCVersionViewBackend = require('./routes/UICCVersionViewBackend');
 
 
 
@@ -29,7 +31,8 @@ app.use('/', indexRouter);
 app.use('/users', users);
 app.use('/questions', questions);
 app.use('/patientList', patientList);
-
+app.use('/patientDetails', patientDetails);
+app.use('/UICCVersionViewBackend', UICCVersionViewBackend);
 
 
 // catch 404 and forward to error handler

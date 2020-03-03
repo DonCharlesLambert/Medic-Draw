@@ -23,6 +23,7 @@ import QuestionScreen from './src/pages/QuestionScreen';
 import ResultScreen from './src/pages/ResultScreen';
 import ListOfPatientsScreen from './src/pages/ListOfPatientsScreen';
 import UICCVersionViewScreen from './src/pages/UICCVersionViewScreen';
+import HeadAndNeckScreen from './src/pages/HeadAndNectScreen';
 import UICCVersionViewDetailScreen from './src/pages/UICCVersionViewDetailScreen';
 
 import PatientDetailScreen from './src/pages/PatientDetailScreen';
@@ -96,6 +97,7 @@ const RootStack = createStackNavigator(
     ListOfPatients: ListOfPatientsScreen,
     ListOfPatient2: ListOfPatientScreen2,
     UICCVersionView: UICCVersionViewScreen,
+    HeadAndNeck: HeadAndNeckScreen,
     UICCVersionViewDetai: UICCVersionViewDetailScreen,
     PatientDetail: PatientDetailScreen
   },

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, ImageBackground, Header, TextInput, Alert, TouchableOpacity } from 'react-native';
-import RadiusBtn from '../CustomedComponent/RadiusBtn';
 import ModalDropdown from 'react-native-modal-dropdown';
 
 
@@ -19,8 +18,34 @@ export default class WholeBodyScreen extends React.Component {
         },
         };
 
-        
+    fetchData = async () => {
+      await fetch('http://127.0.0.1:3000/UICCVersionViewBackend', {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          })
+          .then((response) => response.json())
+          .then ((res) => {
+              const result = JSON.parse(res.message);
+              this.setState({
+                filteredData: result
+              });
+              console.log(this.state.filteredData)
+          }
+        )
+    }
+
+    componentDidMount() {
+      this.fetchData();
+    }
+   
     render() {
+      const { navigation } = this.props;  
+      const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
+      const buttonDetail2 = navigation.getParam('buttonDetail2', 'NO');  
+      console.log(buttonDetail1,buttonDetail2)
       return (
        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
           <ModalDropdown

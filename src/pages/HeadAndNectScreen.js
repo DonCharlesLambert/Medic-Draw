@@ -21,36 +21,61 @@ export default class WholeBodyScreen extends React.Component {
 
         
     render() {
+      const { navigation } = this.props;  
+      const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
+      console.log(buttonDetail1)
       return (
        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             style = {styles.button}
-            onPress={() => this.props.navigation.navigate('HeadAndNeck', {
-              buttonDetail1: "HeadAndNeck"})}
+            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai', {
+                buttonDetail1: buttonDetail1,
+                buttonDetail2: "Larynx"
+            })}
         >
-            <Text style = {styles.buttonText}>HEAD AND NECK</Text>
-        </TouchableOpacity>  
-
-        <TouchableOpacity
-            style = {styles.button}
-            onPress={() => this.props.navigation.navigate('HeadAndNeck', {
-              buttonDetail1: "UpperLimb"})}
-        >
-            <Text style = {styles.buttonText}>UPPER LIMB</Text>
+            <Text style = {styles.buttonText}>Larynx</Text>
         </TouchableOpacity>  
 
         <TouchableOpacity
             style = {styles.button}
             onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
         >
-            <Text style = {styles.buttonText}>LOWER LIMB</Text>
+            <Text style = {styles.buttonText}>Lip and Oral Cavity</Text>
         </TouchableOpacity>  
 
         <TouchableOpacity
             style = {styles.button}
             onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
         >
-            <Text style = {styles.buttonText}>OTHERS</Text>
+            <Text style = {styles.buttonText}>Major Salivary Glands</Text>
+        </TouchableOpacity>  
+
+        <TouchableOpacity
+            style = {styles.button}
+            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
+        >
+            <Text style = {styles.buttonText}>Nasopharynx</Text>
+        </TouchableOpacity>  
+
+        <TouchableOpacity
+            style = {styles.button}
+            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
+        >
+            <Text style = {styles.buttonText}>HPV Mediated p16+ Oropharyngeal Cancer</Text>
+        </TouchableOpacity>  
+
+        <TouchableOpacity
+            style = {styles.button}
+            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
+        >
+            <Text style = {styles.buttonText}>Oropharynx p17- and Hypopharynx</Text>
+        </TouchableOpacity>  
+
+        <TouchableOpacity
+            style = {styles.button}
+            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
+        >
+            <Text style = {styles.buttonText}>Nasal Cavity and Paransal Sinuses</Text>
         </TouchableOpacity>  
 
        </View>

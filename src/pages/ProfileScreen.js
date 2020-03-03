@@ -48,7 +48,7 @@ export default class ProfileScreen extends React.Component {
                           onPress={() => this.props.navigation.navigate('ListOfPatients')}
                       >
                           <Image style = {styles.buttonImg} source={require('../../img/dropper.png')} />
-                          <Text style = {styles.buttonText}>Edit Existing Patients</Text>
+                          <Text style = {styles.buttonText}> Existing Patients</Text>
                       </TouchableOpacity>
                   </View>
               </ImageBackground>
