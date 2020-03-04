@@ -16,7 +16,11 @@ export default class ListOfPatientScreen extends React.Component {
         this.state={
             isLoading: false,
             data: [],
-            inMemoryData: []
+            inMemoryData: [],
+            HospitalNo: 0,
+            comments: 0,
+            size: "",
+            vocalChordMobile: 0,
         }
     }
 
@@ -45,6 +49,37 @@ export default class ListOfPatientScreen extends React.Component {
         });
     };
 
+    fetchData2 = async (HospitalNo, item) => {
+        //  console.log("This: ", HospitalNo)
+         await fetch('http://127.0.0.1:3000/patientDetails?HospitalNo='+ HospitalNo, {
+               method: 'GET',
+               headers: {
+                 'Accept': 'application/json',
+                 'Content-Type': 'application/json',
+               }
+             })
+             .then((response) => response.json())
+             .then ((res) => {
+                 const result = JSON.parse(res.message);
+                //  console.log("result",result);
+                 this.setState({
+                   HospitalNo: result[0].HospitalNo,
+                   comments: result[0].comments,
+                   size: result[0].size,
+                   vocalChordMobile: result[0].vocalChordMobile,
+                 });
+                //  console.log(" THIS item: ",item.HospitalNo)
+                //  console.log(" THIS STATE comments: ",this.state.comments)
+                //  console.log(" THIS STATE size: ",this.state.size)
+                //  console.log(" THIS STATE vocalmobile: ",this.state.vocalChordMobile)
+             })
+             .catch(function(error) {
+               console.log('Problem with fetch operation: ' + error.message);
+                 throw error;
+               });
+       };
+     
+
     componentDidMount () {
         this.setState({isLoading: true})
         this.fetchData();
@@ -72,9 +107,16 @@ export default class ListOfPatientScreen extends React.Component {
     }
 
     _onPress(item) {
+        this.fetchData2(item.HospitalNo, item),
+        console.log("??",this.state.HospitalNo)
         this.props.navigation.navigate('PatientDetail', {
+            data: this.state.data,
             HospitalNo: item.HospitalNo,
-            data: this.state.data
+            Name: item.Name,
+            comments: this.state.comments,
+            size: this.state.size,
+            vocalChordMobile: this.state.vocalChordMobile,
+            result: this.state.result,
             }
         );
     }

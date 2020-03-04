@@ -24,8 +24,10 @@ export default class PatientDetailScreen extends React.Component {
   fetchData = async () => {
    const { navigation } = this.props;  
       const HospitalNo = navigation.getParam('HospitalNo', 'NO-User'); 
+      const Name = navigation.getParam('Name', 'NO-User'); 
       this.setState({
         HospitalNo: HospitalNo,
+        Name: Name,
     });
 
     console.log("This: ", HospitalNo)
@@ -53,26 +55,29 @@ export default class PatientDetailScreen extends React.Component {
           });
   };
 
-  componentDitMount() {
-    this.fetchData();
-  }
 
   render() {
       const { navigation } = this.props;  
-      const HospitalNo = navigation.getParam('HospitalNo', 'NO-User'); 
+      const HospitalNo = navigation.getParam('HospitalNo', 'NO-User');  
+      const Name = navigation.getParam('Name', 'NO-User');  
+      const comments = navigation.getParam('comments', 'NO-User');  
+      const size = navigation.getParam('size', 'NO-User');  
+      const vocalChordMobile = navigation.getParam('vocalChordMobile', 'NO-User');  
+
+
+      console.log("Hospital NO: ",HospitalNo);
+      console.log("comment NO: ",comments);
+      console.log("size NO: ",size);
+      console.log("vocal NO: ",vocalChordMobile);
+
       const data = navigation.getParam('data', '[]');  
-      if (this.state.HospitalNo !== HospitalNo) {
-        this.setState({
-          data: data,
-          HospitalNo: HospitalNo,
-          // run: true,
-      });
-      }
+      // console.log("data:::",data)
+
       // console.log(this.state.HospitalNo)
       // console.log("hihihi", this.state.filteredData[0])
-      // const specificPatient = this.state.data.filter(item => item.HospitalNo === HospitalNo)
+      const specificPatient = data.filter(item => item.HospitalNo === HospitalNo)
       // console.log("filtered data", this.state.filteredData);
-      // console.log("Specific data: ", specificPatient);
+      console.log("Specific patient: ", specificPatient);
       // if (this.state.filteredData === "") {
       //   this.fetchData();
       //   this.setState({
@@ -82,8 +87,16 @@ export default class PatientDetailScreen extends React.Component {
       
     return (
         <View>
+          <Text>Name: {Name}</Text>
           <Text style={styles.text}>HospitalNo: {HospitalNo}</Text>
-    <Text>Name: </Text>
+          <Text style={styles.text}>DOB: {specificPatient[0].DOB}</Text>
+          <Text style={styles.text}>Symptoms: {specificPatient[0].Symptoms}</Text>
+          <Text>Tumour Size: {size}</Text>
+          <Text>Whether vocal chord mobile or not? : {vocalChordMobile}</Text>
+          <Text>Doctor comments: {comments}</Text>
+
+
+
         </View>
     );
   }
