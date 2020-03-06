@@ -26,7 +26,7 @@ export default class WholeBodyScreen extends React.Component {
         <TouchableOpacity
             style = {styles.button}
             onPress={() => this.props.navigation.navigate('HeadAndNeck', {
-              buttonDetail1: "HeadAndNeck"})}
+              buttonDetail1: "Head And Neck"})}
         >
             <Text style = {styles.buttonText}>HEAD AND NECK</Text>
         </TouchableOpacity>  

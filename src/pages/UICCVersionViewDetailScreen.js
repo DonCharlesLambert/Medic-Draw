@@ -9,6 +9,9 @@ export default class WholeBodyScreen extends React.Component {
     this.state = {
       UICCVersion: 'UICC Version 8',
       UICCOptions: ['UICC Version 8', 'UICC Version 7', 'UICC Version 6','UICC Version 5','UICC Version 4',],
+      buttonDetail1: "",
+      buttonDetail2: "",
+      
     }
   }
     static navigationOptions = {
@@ -19,7 +22,11 @@ export default class WholeBodyScreen extends React.Component {
         };
 
     fetchData = async () => {
-      await fetch('http://127.0.0.1:3000/UICCVersionViewBackend', {
+      const { navigation } = this.props;  
+      const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
+      const buttonDetail2 = navigation.getParam('buttonDetail2', 'NO');  
+      console.log(buttonDetail1,buttonDetail2)
+      await fetch('http://127.0.0.1:3000/UICCVersionViewBackend?buttonDetail1='+ buttonDetail1+ '&buttonDetail2=' +buttonDetail2, {
             method: 'GET',
             headers: {
               'Accept': 'application/json',
@@ -42,10 +49,6 @@ export default class WholeBodyScreen extends React.Component {
     }
    
     render() {
-      const { navigation } = this.props;  
-      const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
-      const buttonDetail2 = navigation.getParam('buttonDetail2', 'NO');  
-      console.log(buttonDetail1,buttonDetail2)
       return (
        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
           <ModalDropdown

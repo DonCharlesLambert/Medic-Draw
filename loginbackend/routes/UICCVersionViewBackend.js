@@ -36,10 +36,9 @@ connection.on("connect", err => {
 
 router.get('/', async function(req, res, next) {
   console.log('------ backend get ------');
-    var ClassificationTwo = req.query.ClassificationTwo;
-    var ClassificationOne = req.query.ClassificationOne;
-
-let result = await queryDatabase('select * from userInformation',//'Select * from [UiccVersion].[UiccVersionEight] where ClassificationTwo = '+ ClassificationTwo +' and ClassificationOne = '+ ClassificationOne +'FOR JSON PATH',
+    var buttonDetail1 = req.query.buttonDetail1;
+    var buttonDetail2 = req.query.buttonDetail2;
+let result = await queryDatabase('Select * from UiccVersionEight where ClassificationOne = \''+buttonDetail1+'\' and ClassificationTwo = \''+buttonDetail2+'\' FOR JSON PATH',
 (err, row, field) => {
     if (err) console.log(err);
     else {
@@ -51,13 +50,13 @@ let result = await queryDatabase('select * from userInformation',//'Select * fro
 });
 
 
-router.post('/', async function(req, res, next) { 
+// router.post('/', async function(req, res, next) { 
     
-  let result = await queryDatabase( "Select * from questionnaire, userInformation where questionnaire.HospitalNo = "+ HospitalNo +" and userInformation.HospitalNo ="+ HospitalNo +" FOR JSON PATH",
-  (err, row, field) => {
-    console.log('connected');
-  })
-});
+//   let result = await queryDatabase( "Select * from questionnaire, userInformation where questionnaire.HospitalNo = "+ HospitalNo +" and userInformation.HospitalNo ="+ HospitalNo +" FOR JSON PATH",
+//   (err, row, field) => {
+//     console.log('connected');
+//   })
+// });
 
 function queryDatabase(query) {
     return new Promise((resolve, reject) => {
