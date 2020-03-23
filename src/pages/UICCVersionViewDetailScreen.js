@@ -11,7 +11,7 @@ export default class WholeBodyScreen extends React.Component {
       UICCOptions: ['UICC Version 8', 'UICC Version 7', 'UICC Version 6','UICC Version 5','UICC Version 4',],
       buttonDetail1: "",
       buttonDetail2: "",
-      
+      filteredData: ""
     }
   }
     static navigationOptions = {
@@ -21,34 +21,37 @@ export default class WholeBodyScreen extends React.Component {
         },
         };
 
-    fetchData = async () => {
-      const { navigation } = this.props;  
-      const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
-      const buttonDetail2 = navigation.getParam('buttonDetail2', 'NO');  
-      console.log(buttonDetail1,buttonDetail2)
-      await fetch('http://127.0.0.1:3000/UICCVersionViewBackend?buttonDetail1='+ buttonDetail1+ '&buttonDetail2=' +buttonDetail2, {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-            },
-          })
-          .then((response) => response.json())
-          .then ((res) => {
-              const result = JSON.parse(res.message);
-              this.setState({
-                filteredData: result
-              });
-              console.log(this.state.filteredData)
-          }
-        )
-    }
+    // fetchData = async () => {
+    //   const { navigation } = this.props;  
+    //   const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
+    //   const buttonDetail2 = navigation.getParam('buttonDetail2', 'NO');  
+    //   // console.log(buttonDetail1,buttonDetail2)
+    //   await fetch('http://127.0.0.1:3000/UICCVersionViewBackend?buttonDetail1='+ buttonDetail1+ '&buttonDetail2=' +buttonDetail2, {
+    //         method: 'GET',
+    //         headers: {
+    //           'Accept': 'application/json',
+    //           'Content-Type': 'application/json',
+    //         },
+    //       })
+    //       .then((response) => response.json())
+    //       .then ((res) => {
+    //           const result = res.message;
+    //           this.setState({
+    //             filteredData: result
+    //           });
+    //           // console.log(result)
+    //       }
+    //     )
+    // }
 
-    componentDidMount() {
-      this.fetchData();
-    }
+    // componentDidMount() {
+    //   this.fetchData();
+    // }
    
     render() {
+      const { navigation } = this.props;  
+      const specification = navigation.getParam('specification', 'NO-Infor');  
+      console.log("????????", specification)
       return (
        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
           <ModalDropdown
@@ -64,7 +67,8 @@ export default class WholeBodyScreen extends React.Component {
               <Text style={styles.text}>T1: Tumour 2cm or less in greatest dimension.</Text>
               <Text style={styles.text}>T2: Tumour more than 2cm but not more than 4cm.</Text>
               <Text style={styles.text}>T3: Tumour more than 4cm in or extension to lingual surface or epiglottis.</Text>
-              <Text style={styles.text}>T4: Tumour invades any of the following: larynx, deep/extrinsic muscle or tongue. </Text>
+              {/* <Text style={styles.text}>T4: {this.state.filteredData[1].classificationOne} </Text> */}
+
           </View>
            
           <View style = {{justifyContent: 'center', alignItems: 'center'}}>

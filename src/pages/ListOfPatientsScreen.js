@@ -138,6 +138,7 @@ export default class ListOfPatientScreen extends React.Component {
                     <Image style = {styles.Img} source={require('../../img/search.png')} />
                     <TextInput
                         placeholder= "Search: "
+                        autoCorrect={false}
                         style={{
                             height: 50, 
                             fontSize: 30,

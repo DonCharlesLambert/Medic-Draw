@@ -14,7 +14,6 @@ var patientDetails = require('./routes/patientDetails');
 var UICCVersionViewBackend = require('./routes/UICCVersionViewBackend');
 
 
-
 var app = express();
 
 // view engine setup

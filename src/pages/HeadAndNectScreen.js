@@ -8,9 +8,11 @@ export default class WholeBodyScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      buttonDetail1: '',
       UICCVersion: 'UICC Version 8',
       UICCOptions: ['UICC Version 8', 'UICC Version 7', 'UICC Version 6','UICC Version 5','UICC Version 4',],
-    }
+    };
+    this.specification = '';
   }
     static navigationOptions = {
         title: 'UICC',
@@ -19,26 +21,56 @@ export default class WholeBodyScreen extends React.Component {
         },
         };
 
+        fetchData = async (buttonDetail2) => {
+            const { navigation } = this.props;  
+            const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
+            this.setState({
+                buttonDetail1: buttonDetail1
+            })
+            console.log('detail 1', buttonDetail1)
+            await fetch('http://127.0.0.1:3000/UICCVersionViewBackend?buttonDetail1='+ buttonDetail1+ '&buttonDetail2=' +buttonDetail2, {
+                  method: 'GET',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                  },
+                })
+                .then((response) => response.json())
+                .then ((res) => {
+                    const specification = JSON.parse(res.message);
+                    this.setState({
+                        specification: specification
+                    })
+                    ,this.props.navigation.navigate('UICCVersionViewDetai', {
+                        specification: specification
+                    })
+                }
+              )     
+          }
+        
+          _onPress(buttonDetail2) {
+              this.fetchData(buttonDetail2)
+                      }
+
         
     render() {
-      const { navigation } = this.props;  
-      const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
-      console.log(buttonDetail1)
+    //   const { navigation } = this.props;  
+    //   const buttonDetail1 = navigation.getParam('buttonDetail1', 'NO');  
+    //   console.log("111",this.state.buttonDetail1)
       return (
        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai', {
-                buttonDetail1: buttonDetail1,
-                buttonDetail2: "Larynx"
-            })}
+            onPress={() => this._onPress('Larynx')}
         >
             <Text style = {styles.buttonText}>Larynx</Text>
         </TouchableOpacity>  
 
         <TouchableOpacity
             style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
+            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai', {
+                specification: this.state.specification
+            })}
         >
             <Text style = {styles.buttonText}>Lip and Oral Cavity</Text>
         </TouchableOpacity>  
