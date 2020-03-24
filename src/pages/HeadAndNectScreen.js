@@ -42,7 +42,8 @@ export default class WholeBodyScreen extends React.Component {
                         specification: specification
                     })
                     ,this.props.navigation.navigate('UICCVersionViewDetai', {
-                        specification: specification
+                        specification: specification,
+                        buttonDetail2: buttonDetail2
                     })
                 }
               )     
@@ -68,23 +69,21 @@ export default class WholeBodyScreen extends React.Component {
 
         <TouchableOpacity
             style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai', {
-                specification: this.state.specification
-            })}
+            onPress={() => this._onPress('Lip and Oral Cavity')}
         >
             <Text style = {styles.buttonText}>Lip and Oral Cavity</Text>
         </TouchableOpacity>  
 
         <TouchableOpacity
             style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
+            onPress={() => this._onPress('Major Salivary Glands')}
         >
             <Text style = {styles.buttonText}>Major Salivary Glands</Text>
         </TouchableOpacity>  
 
         <TouchableOpacity
             style = {styles.button}
-            onPress={() => this.props.navigation.navigate('UICCVersionViewDetai')}
+            onPress={() => this._onPress('Nasopharynx')}
         >
             <Text style = {styles.buttonText}>Nasopharynx</Text>
         </TouchableOpacity>  

@@ -75,7 +75,7 @@ export default class AnotherScreen extends React.Component {
       //   return;
       // }
 
-      fetch('http://51.132.14.14:80/users', {
+      fetch('http://127.0.0.1:3000/users', {//'http://51.132.14.14:80/users', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
