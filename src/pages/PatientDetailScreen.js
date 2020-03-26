@@ -12,7 +12,7 @@ export default class PatientDetailScreen extends React.Component {
       data: [],
       filteredData: [],
       run: false,
-      tableTitle: ['Name', 'Hospital Number', 'DOB', 'Tumour Size'],
+      tableTitle: ['Name', 'Hospital Number', 'DOB', 'Tumour Size (cm)'],
     }
   }
 
@@ -33,7 +33,7 @@ export default class PatientDetailScreen extends React.Component {
     });
 
     console.log("This: ", HospitalNo)
-    await fetch('http://127.0.0.1:3000/patientDetails?HospitalNo='+ HospitalNo, {
+    await fetch('http://51.140.46.232/patientDetails?HospitalNo='+ HospitalNo, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',

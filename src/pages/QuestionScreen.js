@@ -21,7 +21,7 @@ export default class drawingScreen extends React.Component {
     }
 
     submit = () => {
-      fetch('http://127.0.0.1:3000/questions', {
+      fetch('http://51.140.46.232/questions', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

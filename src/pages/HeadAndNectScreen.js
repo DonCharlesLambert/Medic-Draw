@@ -28,7 +28,7 @@ export default class WholeBodyScreen extends React.Component {
                 buttonDetail1: buttonDetail1
             })
             console.log('detail 1', buttonDetail1)
-            await fetch('http://127.0.0.1:3000/UICCVersionViewBackend?buttonDetail1='+ buttonDetail1+ '&buttonDetail2=' +buttonDetail2, {
+            await fetch('http://51.140.46.232/UICCVersionViewBackend?buttonDetail1='+ buttonDetail1+ '&buttonDetail2=' +buttonDetail2, {
                   method: 'GET',
                   headers: {
                     'Accept': 'application/json',

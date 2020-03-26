@@ -25,7 +25,7 @@ export default class ListOfPatientScreen extends React.Component {
     }
 
     fetchData = async () => {
-        await fetch('http://127.0.0.1:3000/patientList', {
+        await fetch('http://51.140.46.232/patientList', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -51,7 +51,7 @@ export default class ListOfPatientScreen extends React.Component {
 
     fetchData2 = async (HospitalNo, item) => {
         //  console.log("This: ", HospitalNo)
-         await fetch('http://127.0.0.1:3000/patientDetails?HospitalNo='+ HospitalNo, {
+         await fetch('http://51.140.46.232/patientDetails?HospitalNo='+ HospitalNo, {
                method: 'GET',
                headers: {
                  'Accept': 'application/json',
