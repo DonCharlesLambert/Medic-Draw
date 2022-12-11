@@ -16,7 +16,7 @@
     "events": "^3.0.0",
     "expo": "~36.0.0",
     "expo-image-picker": "^8.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mssql": "^6.1.0",
     "nodemon": "^2.0.2",
     "react": "~16.9.0",
