@@ -13,7 +13,7 @@
     "async": "^3.1.0",
     "azure-mobile-apps": "^4.0.1",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mysql": "^2.18.1",
     "tedious": "^6.6.5"
   }
